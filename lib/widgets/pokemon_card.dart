@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
+import 'package:pokedex_flutter/theme/colors.dart';
+import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/utils/dio_client.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PokemonCard extends StatelessWidget {
   String name;
@@ -23,12 +26,6 @@ class PokemonCard extends StatelessWidget {
             Pokemon pokemonData = pokemon;
 
             return GestureDetector(
-              // onTap: () {
-              //   Navigator.of(context).pushNamed(
-              //     PokemonScreen.routeName,
-              //     arguments: pokemonId,
-              //   );
-              // },
               onTap: () {
                 Navigator.push(
                   context,
@@ -39,29 +36,104 @@ class PokemonCard extends StatelessWidget {
               },
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
-                borderOnForeground: true,
-                color: Colors.white,
-                shadowColor: Colors.black,
+                color: const AppColors().get(pokemonData.types![0].type!.name!),
                 elevation: 0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text(
-                      name,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      height: 230,
+                      left: 100,
+                      child: SvgPicture.asset(
+                        'assets/poke-types/${pokemonData.types![0].type!.name!.toLowerCase()}.svg',
+                        color: darken(const AppColors()
+                            .get(pokemonData.types![0].type!.name!)),
                       ),
                     ),
-                    Container(
-                      // width: 100
-                      height: 160,
-                      child: Image.network(
-                        "https://cdn.traction.one/pokedex/pokemon/$pokemonId.png",
-                        fit: BoxFit.cover,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                '#00' + pokemonId,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  height: 1,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                              Text(
+                                "${name[0].toUpperCase()}${name.substring(1)}",
+                                style: const TextStyle(
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Wrap(
+                                spacing: 5,
+                                children: pokemonData.types!
+                                    .map(
+                                      (Type type) => Chip(
+                                        label: Text(
+                                          type.type!.name!,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        avatar: SvgPicture.asset(
+                                          'assets/poke-types/${type.type!.name!.toLowerCase()}.svg',
+                                          height: 16,
+                                          width: 16,
+                                        ),
+                                        visualDensity: VisualDensity.compact,
+                                        backgroundColor: darken(
+                                          const AppColors().get(
+                                            type.type!.name!,
+                                          ),
+                                        ),
+                                        labelPadding: const EdgeInsets.only(
+                                          left: 1,
+                                          right: 1,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                      ),
+                                    )
+                                    .toList(),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Center(
+                            child: Container(
+                              // width: 100
+                              height: 160,
+                              child: Image.network(
+                                "https://cdn.traction.one/pokedex/pokemon/$pokemonId.png",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Positioned(
+                      top: 20,
+                      right: 20,
+                      child: Icon(
+                        Icons.favorite_border,
+                        color: Colors.white,
                       ),
                     ),
                   ],

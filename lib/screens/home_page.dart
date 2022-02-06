@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_flutter/models/pokemons.dart';
 import 'package:pokedex_flutter/utils/dio_client.dart';
 import 'package:pokedex_flutter/widgets/pokemon_card.dart';
@@ -17,10 +18,28 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("POKEDEX"),
+        centerTitle: true,
+        title: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            const Icon(
+              Icons.catching_pokemon_outlined,
+              color: Colors.redAccent,
+              size: 40,
+            ),
+            Text(
+              "Pokedex",
+              style: GoogleFonts.righteous(
+                textStyle: Theme.of(context).textTheme.headline4,
+                fontWeight: FontWeight.bold,
+                // color: Colors.redAccent,
+              ),
+            ),
+          ],
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
         child: FutureBuilder<Pokemons?>(
           future: _client.getPokemons(),
           builder: (context, snapshot) {
@@ -33,13 +52,16 @@ class _HomePageState extends State<HomePage> {
                 return ListView.builder(
                   itemCount: pokemonsData.length,
                   itemBuilder: (context, index) {
-                    return PokemonCard(
-                        pokemonsData[index].name, pokemonsData[index].url);
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                      child: PokemonCard(
+                          pokemonsData[index].name, pokemonsData[index].url),
+                    );
                   },
                 );
               }
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
         ),
       ),
