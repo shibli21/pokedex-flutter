@@ -28,11 +28,10 @@ class _HomePageState extends State<HomePage> {
               size: 40,
             ),
             Text(
-              "Pokedex",
+              "Pokédex",
               style: GoogleFonts.righteous(
                 textStyle: Theme.of(context).textTheme.headline4,
                 fontWeight: FontWeight.bold,
-                // color: Colors.redAccent,
               ),
             ),
           ],

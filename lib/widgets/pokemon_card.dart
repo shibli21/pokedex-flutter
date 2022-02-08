@@ -5,6 +5,7 @@ import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/utils/dio_client.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pokedex_flutter/widgets/pokemon_type_chips.dart';
 
 class PokemonCard extends StatelessWidget {
   String name;
@@ -77,51 +78,22 @@ class PokemonCard extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                               ),
-                              Wrap(
-                                spacing: 5,
-                                children: pokemonData.types!
-                                    .map(
-                                      (Type type) => Chip(
-                                        label: Text(
-                                          type.type!.name!,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                        avatar: SvgPicture.asset(
-                                          'assets/poke-types/${type.type!.name!.toLowerCase()}.svg',
-                                          height: 16,
-                                          width: 16,
-                                        ),
-                                        visualDensity: VisualDensity.compact,
-                                        backgroundColor: darken(
-                                          const AppColors().get(
-                                            type.type!.name!,
-                                          ),
-                                        ),
-                                        labelPadding: const EdgeInsets.only(
-                                          left: 1,
-                                          right: 1,
-                                        ),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                      ),
-                                    )
-                                    .toList(),
+                              PokemonTypeChips(
+                                types: pokemonData.types!,
                               ),
                             ],
                           ),
                         ),
                         Expanded(
                           child: Center(
-                            child: Container(
-                              // width: 100
+                            child: SizedBox(
                               height: 160,
-                              child: Image.network(
-                                "https://cdn.traction.one/pokedex/pokemon/$pokemonId.png",
-                                fit: BoxFit.cover,
+                              child: Hero(
+                                tag: pokemonId,
+                                child: Image.network(
+                                  "https://cdn.traction.one/pokedex/pokemon/$pokemonId.png",
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),

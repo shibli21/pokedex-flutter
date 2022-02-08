@@ -24,18 +24,18 @@ class _$PokemonTearOff {
 
   _Pokemon call(
       {List<Ability>? abilities,
-      int? baseExperience,
+      @JsonKey(name: "base_experience") int? baseExperience,
       List<Species>? forms,
-      List<GameIndex>? gameIndices,
+      @JsonKey(name: "game_indices") List<GameIndex>? gameIndices,
       int? height,
-      List<dynamic>? heldItems,
+      @JsonKey(name: "held_items") List<dynamic>? heldItems,
       int? id,
-      bool? isDefault,
-      String? locationAreaEncounters,
+      @JsonKey(name: "is_default") bool? isDefault,
+      @JsonKey(name: "location_area_encounters") String? locationAreaEncounters,
       List<Move>? moves,
       String? name,
       int? order,
-      List<dynamic>? pastTypes,
+      @JsonKey(name: "past_types") List<dynamic>? pastTypes,
       Species? species,
       Sprites? sprites,
       List<Stat>? stats,
@@ -74,17 +74,23 @@ const $Pokemon = _$PokemonTearOff();
 /// @nodoc
 mixin _$Pokemon {
   List<Ability>? get abilities => throw _privateConstructorUsedError;
+  @JsonKey(name: "base_experience")
   int? get baseExperience => throw _privateConstructorUsedError;
   List<Species>? get forms => throw _privateConstructorUsedError;
+  @JsonKey(name: "game_indices")
   List<GameIndex>? get gameIndices => throw _privateConstructorUsedError;
   int? get height => throw _privateConstructorUsedError;
+  @JsonKey(name: "held_items")
   List<dynamic>? get heldItems => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "is_default")
   bool? get isDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "location_area_encounters")
   String? get locationAreaEncounters => throw _privateConstructorUsedError;
   List<Move>? get moves => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int? get order => throw _privateConstructorUsedError;
+  @JsonKey(name: "past_types")
   List<dynamic>? get pastTypes => throw _privateConstructorUsedError;
   Species? get species => throw _privateConstructorUsedError;
   Sprites? get sprites => throw _privateConstructorUsedError;
@@ -103,18 +109,18 @@ abstract class $PokemonCopyWith<$Res> {
       _$PokemonCopyWithImpl<$Res>;
   $Res call(
       {List<Ability>? abilities,
-      int? baseExperience,
+      @JsonKey(name: "base_experience") int? baseExperience,
       List<Species>? forms,
-      List<GameIndex>? gameIndices,
+      @JsonKey(name: "game_indices") List<GameIndex>? gameIndices,
       int? height,
-      List<dynamic>? heldItems,
+      @JsonKey(name: "held_items") List<dynamic>? heldItems,
       int? id,
-      bool? isDefault,
-      String? locationAreaEncounters,
+      @JsonKey(name: "is_default") bool? isDefault,
+      @JsonKey(name: "location_area_encounters") String? locationAreaEncounters,
       List<Move>? moves,
       String? name,
       int? order,
-      List<dynamic>? pastTypes,
+      @JsonKey(name: "past_types") List<dynamic>? pastTypes,
       Species? species,
       Sprites? sprites,
       List<Stat>? stats,
@@ -260,18 +266,18 @@ abstract class _$PokemonCopyWith<$Res> implements $PokemonCopyWith<$Res> {
   @override
   $Res call(
       {List<Ability>? abilities,
-      int? baseExperience,
+      @JsonKey(name: "base_experience") int? baseExperience,
       List<Species>? forms,
-      List<GameIndex>? gameIndices,
+      @JsonKey(name: "game_indices") List<GameIndex>? gameIndices,
       int? height,
-      List<dynamic>? heldItems,
+      @JsonKey(name: "held_items") List<dynamic>? heldItems,
       int? id,
-      bool? isDefault,
-      String? locationAreaEncounters,
+      @JsonKey(name: "is_default") bool? isDefault,
+      @JsonKey(name: "location_area_encounters") String? locationAreaEncounters,
       List<Move>? moves,
       String? name,
       int? order,
-      List<dynamic>? pastTypes,
+      @JsonKey(name: "past_types") List<dynamic>? pastTypes,
       Species? species,
       Sprites? sprites,
       List<Stat>? stats,
@@ -396,18 +402,18 @@ class __$PokemonCopyWithImpl<$Res> extends _$PokemonCopyWithImpl<$Res>
 class _$_Pokemon implements _Pokemon {
   const _$_Pokemon(
       {this.abilities,
-      this.baseExperience,
+      @JsonKey(name: "base_experience") this.baseExperience,
       this.forms,
-      this.gameIndices,
+      @JsonKey(name: "game_indices") this.gameIndices,
       this.height,
-      this.heldItems,
+      @JsonKey(name: "held_items") this.heldItems,
       this.id,
-      this.isDefault,
-      this.locationAreaEncounters,
+      @JsonKey(name: "is_default") this.isDefault,
+      @JsonKey(name: "location_area_encounters") this.locationAreaEncounters,
       this.moves,
       this.name,
       this.order,
-      this.pastTypes,
+      @JsonKey(name: "past_types") this.pastTypes,
       this.species,
       this.sprites,
       this.stats,
@@ -420,20 +426,25 @@ class _$_Pokemon implements _Pokemon {
   @override
   final List<Ability>? abilities;
   @override
+  @JsonKey(name: "base_experience")
   final int? baseExperience;
   @override
   final List<Species>? forms;
   @override
+  @JsonKey(name: "game_indices")
   final List<GameIndex>? gameIndices;
   @override
   final int? height;
   @override
+  @JsonKey(name: "held_items")
   final List<dynamic>? heldItems;
   @override
   final int? id;
   @override
+  @JsonKey(name: "is_default")
   final bool? isDefault;
   @override
+  @JsonKey(name: "location_area_encounters")
   final String? locationAreaEncounters;
   @override
   final List<Move>? moves;
@@ -442,6 +453,7 @@ class _$_Pokemon implements _Pokemon {
   @override
   final int? order;
   @override
+  @JsonKey(name: "past_types")
   final List<dynamic>? pastTypes;
   @override
   final Species? species;
@@ -523,18 +535,18 @@ class _$_Pokemon implements _Pokemon {
 abstract class _Pokemon implements Pokemon {
   const factory _Pokemon(
       {List<Ability>? abilities,
-      int? baseExperience,
+      @JsonKey(name: "base_experience") int? baseExperience,
       List<Species>? forms,
-      List<GameIndex>? gameIndices,
+      @JsonKey(name: "game_indices") List<GameIndex>? gameIndices,
       int? height,
-      List<dynamic>? heldItems,
+      @JsonKey(name: "held_items") List<dynamic>? heldItems,
       int? id,
-      bool? isDefault,
-      String? locationAreaEncounters,
+      @JsonKey(name: "is_default") bool? isDefault,
+      @JsonKey(name: "location_area_encounters") String? locationAreaEncounters,
       List<Move>? moves,
       String? name,
       int? order,
-      List<dynamic>? pastTypes,
+      @JsonKey(name: "past_types") List<dynamic>? pastTypes,
       Species? species,
       Sprites? sprites,
       List<Stat>? stats,
@@ -546,20 +558,25 @@ abstract class _Pokemon implements Pokemon {
   @override
   List<Ability>? get abilities;
   @override
+  @JsonKey(name: "base_experience")
   int? get baseExperience;
   @override
   List<Species>? get forms;
   @override
+  @JsonKey(name: "game_indices")
   List<GameIndex>? get gameIndices;
   @override
   int? get height;
   @override
+  @JsonKey(name: "held_items")
   List<dynamic>? get heldItems;
   @override
   int? get id;
   @override
+  @JsonKey(name: "is_default")
   bool? get isDefault;
   @override
+  @JsonKey(name: "location_area_encounters")
   String? get locationAreaEncounters;
   @override
   List<Move>? get moves;
@@ -568,6 +585,7 @@ abstract class _Pokemon implements Pokemon {
   @override
   int? get order;
   @override
+  @JsonKey(name: "past_types")
   List<dynamic>? get pastTypes;
   @override
   Species? get species;
@@ -593,7 +611,10 @@ Ability _$AbilityFromJson(Map<String, dynamic> json) {
 class _$AbilityTearOff {
   const _$AbilityTearOff();
 
-  _Ability call({Species? ability, bool? isHidden, int? slot}) {
+  _Ability call(
+      {Species? ability,
+      @JsonKey(name: "is_hidden") bool? isHidden,
+      int? slot}) {
     return _Ability(
       ability: ability,
       isHidden: isHidden,
@@ -612,6 +633,7 @@ const $Ability = _$AbilityTearOff();
 /// @nodoc
 mixin _$Ability {
   Species? get ability => throw _privateConstructorUsedError;
+  @JsonKey(name: "is_hidden")
   bool? get isHidden => throw _privateConstructorUsedError;
   int? get slot => throw _privateConstructorUsedError;
 
@@ -624,7 +646,10 @@ mixin _$Ability {
 abstract class $AbilityCopyWith<$Res> {
   factory $AbilityCopyWith(Ability value, $Res Function(Ability) then) =
       _$AbilityCopyWithImpl<$Res>;
-  $Res call({Species? ability, bool? isHidden, int? slot});
+  $Res call(
+      {Species? ability,
+      @JsonKey(name: "is_hidden") bool? isHidden,
+      int? slot});
 
   $SpeciesCopyWith<$Res>? get ability;
 }
@@ -676,7 +701,10 @@ abstract class _$AbilityCopyWith<$Res> implements $AbilityCopyWith<$Res> {
   factory _$AbilityCopyWith(_Ability value, $Res Function(_Ability) then) =
       __$AbilityCopyWithImpl<$Res>;
   @override
-  $Res call({Species? ability, bool? isHidden, int? slot});
+  $Res call(
+      {Species? ability,
+      @JsonKey(name: "is_hidden") bool? isHidden,
+      int? slot});
 
   @override
   $SpeciesCopyWith<$Res>? get ability;
@@ -717,7 +745,8 @@ class __$AbilityCopyWithImpl<$Res> extends _$AbilityCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Ability implements _Ability {
-  const _$_Ability({this.ability, this.isHidden, this.slot});
+  const _$_Ability(
+      {this.ability, @JsonKey(name: "is_hidden") this.isHidden, this.slot});
 
   factory _$_Ability.fromJson(Map<String, dynamic> json) =>
       _$$_AbilityFromJson(json);
@@ -725,6 +754,7 @@ class _$_Ability implements _Ability {
   @override
   final Species? ability;
   @override
+  @JsonKey(name: "is_hidden")
   final bool? isHidden;
   @override
   final int? slot;
@@ -763,14 +793,17 @@ class _$_Ability implements _Ability {
 }
 
 abstract class _Ability implements Ability {
-  const factory _Ability({Species? ability, bool? isHidden, int? slot}) =
-      _$_Ability;
+  const factory _Ability(
+      {Species? ability,
+      @JsonKey(name: "is_hidden") bool? isHidden,
+      int? slot}) = _$_Ability;
 
   factory _Ability.fromJson(Map<String, dynamic> json) = _$_Ability.fromJson;
 
   @override
   Species? get ability;
   @override
+  @JsonKey(name: "is_hidden")
   bool? get isHidden;
   @override
   int? get slot;
@@ -948,7 +981,8 @@ GameIndex _$GameIndexFromJson(Map<String, dynamic> json) {
 class _$GameIndexTearOff {
   const _$GameIndexTearOff();
 
-  _GameIndex call({int? gameIndex, Species? version}) {
+  _GameIndex call(
+      {@JsonKey(name: "game_ndex") int? gameIndex, Species? version}) {
     return _GameIndex(
       gameIndex: gameIndex,
       version: version,
@@ -965,6 +999,7 @@ const $GameIndex = _$GameIndexTearOff();
 
 /// @nodoc
 mixin _$GameIndex {
+  @JsonKey(name: "game_ndex")
   int? get gameIndex => throw _privateConstructorUsedError;
   Species? get version => throw _privateConstructorUsedError;
 
@@ -978,7 +1013,7 @@ mixin _$GameIndex {
 abstract class $GameIndexCopyWith<$Res> {
   factory $GameIndexCopyWith(GameIndex value, $Res Function(GameIndex) then) =
       _$GameIndexCopyWithImpl<$Res>;
-  $Res call({int? gameIndex, Species? version});
+  $Res call({@JsonKey(name: "game_ndex") int? gameIndex, Species? version});
 
   $SpeciesCopyWith<$Res>? get version;
 }
@@ -1026,7 +1061,7 @@ abstract class _$GameIndexCopyWith<$Res> implements $GameIndexCopyWith<$Res> {
           _GameIndex value, $Res Function(_GameIndex) then) =
       __$GameIndexCopyWithImpl<$Res>;
   @override
-  $Res call({int? gameIndex, Species? version});
+  $Res call({@JsonKey(name: "game_ndex") int? gameIndex, Species? version});
 
   @override
   $SpeciesCopyWith<$Res>? get version;
@@ -1062,12 +1097,14 @@ class __$GameIndexCopyWithImpl<$Res> extends _$GameIndexCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_GameIndex implements _GameIndex {
-  const _$_GameIndex({this.gameIndex, this.version});
+  const _$_GameIndex(
+      {@JsonKey(name: "game_ndex") this.gameIndex, this.version});
 
   factory _$_GameIndex.fromJson(Map<String, dynamic> json) =>
       _$$_GameIndexFromJson(json);
 
   @override
+  @JsonKey(name: "game_ndex")
   final int? gameIndex;
   @override
   final Species? version;
@@ -1104,12 +1141,15 @@ class _$_GameIndex implements _GameIndex {
 }
 
 abstract class _GameIndex implements GameIndex {
-  const factory _GameIndex({int? gameIndex, Species? version}) = _$_GameIndex;
+  const factory _GameIndex(
+      {@JsonKey(name: "game_ndex") int? gameIndex,
+      Species? version}) = _$_GameIndex;
 
   factory _GameIndex.fromJson(Map<String, dynamic> json) =
       _$_GameIndex.fromJson;
 
   @override
+  @JsonKey(name: "game_ndex")
   int? get gameIndex;
   @override
   Species? get version;
@@ -1127,7 +1167,10 @@ Move _$MoveFromJson(Map<String, dynamic> json) {
 class _$MoveTearOff {
   const _$MoveTearOff();
 
-  _Move call({Species? move, List<VersionGroupDetail>? versionGroupDetails}) {
+  _Move call(
+      {Species? move,
+      @JsonKey(name: "version_group_details")
+          List<VersionGroupDetail>? versionGroupDetails}) {
     return _Move(
       move: move,
       versionGroupDetails: versionGroupDetails,
@@ -1145,6 +1188,7 @@ const $Move = _$MoveTearOff();
 /// @nodoc
 mixin _$Move {
   Species? get move => throw _privateConstructorUsedError;
+  @JsonKey(name: "version_group_details")
   List<VersionGroupDetail>? get versionGroupDetails =>
       throw _privateConstructorUsedError;
 
@@ -1157,7 +1201,10 @@ mixin _$Move {
 abstract class $MoveCopyWith<$Res> {
   factory $MoveCopyWith(Move value, $Res Function(Move) then) =
       _$MoveCopyWithImpl<$Res>;
-  $Res call({Species? move, List<VersionGroupDetail>? versionGroupDetails});
+  $Res call(
+      {Species? move,
+      @JsonKey(name: "version_group_details")
+          List<VersionGroupDetail>? versionGroupDetails});
 
   $SpeciesCopyWith<$Res>? get move;
 }
@@ -1204,7 +1251,10 @@ abstract class _$MoveCopyWith<$Res> implements $MoveCopyWith<$Res> {
   factory _$MoveCopyWith(_Move value, $Res Function(_Move) then) =
       __$MoveCopyWithImpl<$Res>;
   @override
-  $Res call({Species? move, List<VersionGroupDetail>? versionGroupDetails});
+  $Res call(
+      {Species? move,
+      @JsonKey(name: "version_group_details")
+          List<VersionGroupDetail>? versionGroupDetails});
 
   @override
   $SpeciesCopyWith<$Res>? get move;
@@ -1240,13 +1290,16 @@ class __$MoveCopyWithImpl<$Res> extends _$MoveCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Move implements _Move {
-  const _$_Move({this.move, this.versionGroupDetails});
+  const _$_Move(
+      {this.move,
+      @JsonKey(name: "version_group_details") this.versionGroupDetails});
 
   factory _$_Move.fromJson(Map<String, dynamic> json) => _$$_MoveFromJson(json);
 
   @override
   final Species? move;
   @override
+  @JsonKey(name: "version_group_details")
   final List<VersionGroupDetail>? versionGroupDetails;
 
   @override
@@ -1283,13 +1336,16 @@ class _$_Move implements _Move {
 
 abstract class _Move implements Move {
   const factory _Move(
-      {Species? move, List<VersionGroupDetail>? versionGroupDetails}) = _$_Move;
+      {Species? move,
+      @JsonKey(name: "version_group_details")
+          List<VersionGroupDetail>? versionGroupDetails}) = _$_Move;
 
   factory _Move.fromJson(Map<String, dynamic> json) = _$_Move.fromJson;
 
   @override
   Species? get move;
   @override
+  @JsonKey(name: "version_group_details")
   List<VersionGroupDetail>? get versionGroupDetails;
   @override
   @JsonKey(ignore: true)
@@ -1305,7 +1361,9 @@ class _$VersionGroupDetailTearOff {
   const _$VersionGroupDetailTearOff();
 
   _VersionGroupDetail call(
-      {int? levelLearnedAt, Species? moveLearnMethod, Species? versionGroup}) {
+      {@JsonKey(name: "level_learned_at") int? levelLearnedAt,
+      @JsonKey(name: "move_learn_method") Species? moveLearnMethod,
+      @JsonKey(name: "version_group") Species? versionGroup}) {
     return _VersionGroupDetail(
       levelLearnedAt: levelLearnedAt,
       moveLearnMethod: moveLearnMethod,
@@ -1323,8 +1381,11 @@ const $VersionGroupDetail = _$VersionGroupDetailTearOff();
 
 /// @nodoc
 mixin _$VersionGroupDetail {
+  @JsonKey(name: "level_learned_at")
   int? get levelLearnedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: "move_learn_method")
   Species? get moveLearnMethod => throw _privateConstructorUsedError;
+  @JsonKey(name: "version_group")
   Species? get versionGroup => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1339,7 +1400,9 @@ abstract class $VersionGroupDetailCopyWith<$Res> {
           VersionGroupDetail value, $Res Function(VersionGroupDetail) then) =
       _$VersionGroupDetailCopyWithImpl<$Res>;
   $Res call(
-      {int? levelLearnedAt, Species? moveLearnMethod, Species? versionGroup});
+      {@JsonKey(name: "level_learned_at") int? levelLearnedAt,
+      @JsonKey(name: "move_learn_method") Species? moveLearnMethod,
+      @JsonKey(name: "version_group") Species? versionGroup});
 
   $SpeciesCopyWith<$Res>? get moveLearnMethod;
   $SpeciesCopyWith<$Res>? get versionGroup;
@@ -1407,7 +1470,9 @@ abstract class _$VersionGroupDetailCopyWith<$Res>
       __$VersionGroupDetailCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? levelLearnedAt, Species? moveLearnMethod, Species? versionGroup});
+      {@JsonKey(name: "level_learned_at") int? levelLearnedAt,
+      @JsonKey(name: "move_learn_method") Species? moveLearnMethod,
+      @JsonKey(name: "version_group") Species? versionGroup});
 
   @override
   $SpeciesCopyWith<$Res>? get moveLearnMethod;
@@ -1453,16 +1518,21 @@ class __$VersionGroupDetailCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_VersionGroupDetail implements _VersionGroupDetail {
   const _$_VersionGroupDetail(
-      {this.levelLearnedAt, this.moveLearnMethod, this.versionGroup});
+      {@JsonKey(name: "level_learned_at") this.levelLearnedAt,
+      @JsonKey(name: "move_learn_method") this.moveLearnMethod,
+      @JsonKey(name: "version_group") this.versionGroup});
 
   factory _$_VersionGroupDetail.fromJson(Map<String, dynamic> json) =>
       _$$_VersionGroupDetailFromJson(json);
 
   @override
+  @JsonKey(name: "level_learned_at")
   final int? levelLearnedAt;
   @override
+  @JsonKey(name: "move_learn_method")
   final Species? moveLearnMethod;
   @override
+  @JsonKey(name: "version_group")
   final Species? versionGroup;
 
   @override
@@ -1503,18 +1573,22 @@ class _$_VersionGroupDetail implements _VersionGroupDetail {
 
 abstract class _VersionGroupDetail implements VersionGroupDetail {
   const factory _VersionGroupDetail(
-      {int? levelLearnedAt,
-      Species? moveLearnMethod,
-      Species? versionGroup}) = _$_VersionGroupDetail;
+          {@JsonKey(name: "level_learned_at") int? levelLearnedAt,
+          @JsonKey(name: "move_learn_method") Species? moveLearnMethod,
+          @JsonKey(name: "version_group") Species? versionGroup}) =
+      _$_VersionGroupDetail;
 
   factory _VersionGroupDetail.fromJson(Map<String, dynamic> json) =
       _$_VersionGroupDetail.fromJson;
 
   @override
+  @JsonKey(name: "level_learned_at")
   int? get levelLearnedAt;
   @override
+  @JsonKey(name: "move_learn_method")
   Species? get moveLearnMethod;
   @override
+  @JsonKey(name: "version_group")
   Species? get versionGroup;
   @override
   @JsonKey(ignore: true)
@@ -1530,7 +1604,7 @@ GenerationV _$GenerationVFromJson(Map<String, dynamic> json) {
 class _$GenerationVTearOff {
   const _$GenerationVTearOff();
 
-  _GenerationV call({Sprites? blackWhite}) {
+  _GenerationV call({@JsonKey(name: "black_white") Sprites? blackWhite}) {
     return _GenerationV(
       blackWhite: blackWhite,
     );
@@ -1546,6 +1620,7 @@ const $GenerationV = _$GenerationVTearOff();
 
 /// @nodoc
 mixin _$GenerationV {
+  @JsonKey(name: "black_white")
   Sprites? get blackWhite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1559,7 +1634,7 @@ abstract class $GenerationVCopyWith<$Res> {
   factory $GenerationVCopyWith(
           GenerationV value, $Res Function(GenerationV) then) =
       _$GenerationVCopyWithImpl<$Res>;
-  $Res call({Sprites? blackWhite});
+  $Res call({@JsonKey(name: "black_white") Sprites? blackWhite});
 
   $SpritesCopyWith<$Res>? get blackWhite;
 }
@@ -1603,7 +1678,7 @@ abstract class _$GenerationVCopyWith<$Res>
           _GenerationV value, $Res Function(_GenerationV) then) =
       __$GenerationVCopyWithImpl<$Res>;
   @override
-  $Res call({Sprites? blackWhite});
+  $Res call({@JsonKey(name: "black_white") Sprites? blackWhite});
 
   @override
   $SpritesCopyWith<$Res>? get blackWhite;
@@ -1635,12 +1710,13 @@ class __$GenerationVCopyWithImpl<$Res> extends _$GenerationVCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_GenerationV implements _GenerationV {
-  const _$_GenerationV({this.blackWhite});
+  const _$_GenerationV({@JsonKey(name: "black_white") this.blackWhite});
 
   factory _$_GenerationV.fromJson(Map<String, dynamic> json) =>
       _$$_GenerationVFromJson(json);
 
   @override
+  @JsonKey(name: "black_white")
   final Sprites? blackWhite;
 
   @override
@@ -1673,12 +1749,14 @@ class _$_GenerationV implements _GenerationV {
 }
 
 abstract class _GenerationV implements GenerationV {
-  const factory _GenerationV({Sprites? blackWhite}) = _$_GenerationV;
+  const factory _GenerationV(
+      {@JsonKey(name: "black_white") Sprites? blackWhite}) = _$_GenerationV;
 
   factory _GenerationV.fromJson(Map<String, dynamic> json) =
       _$_GenerationV.fromJson;
 
   @override
+  @JsonKey(name: "black_white")
   Sprites? get blackWhite;
   @override
   @JsonKey(ignore: true)
@@ -1695,8 +1773,8 @@ class _$GenerationIvTearOff {
   const _$GenerationIvTearOff();
 
   _GenerationIv call(
-      {Sprites? diamondPearl,
-      Sprites? heartgoldSoulsilver,
+      {@JsonKey(name: "diamond_pearl") Sprites? diamondPearl,
+      @JsonKey(name: "heartgold_soulsilver") Sprites? heartgoldSoulsilver,
       Sprites? platinum}) {
     return _GenerationIv(
       diamondPearl: diamondPearl,
@@ -1715,7 +1793,9 @@ const $GenerationIv = _$GenerationIvTearOff();
 
 /// @nodoc
 mixin _$GenerationIv {
+  @JsonKey(name: "diamond_pearl")
   Sprites? get diamondPearl => throw _privateConstructorUsedError;
+  @JsonKey(name: "heartgold_soulsilver")
   Sprites? get heartgoldSoulsilver => throw _privateConstructorUsedError;
   Sprites? get platinum => throw _privateConstructorUsedError;
 
@@ -1731,7 +1811,9 @@ abstract class $GenerationIvCopyWith<$Res> {
           GenerationIv value, $Res Function(GenerationIv) then) =
       _$GenerationIvCopyWithImpl<$Res>;
   $Res call(
-      {Sprites? diamondPearl, Sprites? heartgoldSoulsilver, Sprites? platinum});
+      {@JsonKey(name: "diamond_pearl") Sprites? diamondPearl,
+      @JsonKey(name: "heartgold_soulsilver") Sprites? heartgoldSoulsilver,
+      Sprites? platinum});
 
   $SpritesCopyWith<$Res>? get diamondPearl;
   $SpritesCopyWith<$Res>? get heartgoldSoulsilver;
@@ -1810,7 +1892,9 @@ abstract class _$GenerationIvCopyWith<$Res>
       __$GenerationIvCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Sprites? diamondPearl, Sprites? heartgoldSoulsilver, Sprites? platinum});
+      {@JsonKey(name: "diamond_pearl") Sprites? diamondPearl,
+      @JsonKey(name: "heartgold_soulsilver") Sprites? heartgoldSoulsilver,
+      Sprites? platinum});
 
   @override
   $SpritesCopyWith<$Res>? get diamondPearl;
@@ -1857,14 +1941,18 @@ class __$GenerationIvCopyWithImpl<$Res> extends _$GenerationIvCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerationIv implements _GenerationIv {
   const _$_GenerationIv(
-      {this.diamondPearl, this.heartgoldSoulsilver, this.platinum});
+      {@JsonKey(name: "diamond_pearl") this.diamondPearl,
+      @JsonKey(name: "heartgold_soulsilver") this.heartgoldSoulsilver,
+      this.platinum});
 
   factory _$_GenerationIv.fromJson(Map<String, dynamic> json) =>
       _$$_GenerationIvFromJson(json);
 
   @override
+  @JsonKey(name: "diamond_pearl")
   final Sprites? diamondPearl;
   @override
+  @JsonKey(name: "heartgold_soulsilver")
   final Sprites? heartgoldSoulsilver;
   @override
   final Sprites? platinum;
@@ -1906,16 +1994,18 @@ class _$_GenerationIv implements _GenerationIv {
 
 abstract class _GenerationIv implements GenerationIv {
   const factory _GenerationIv(
-      {Sprites? diamondPearl,
-      Sprites? heartgoldSoulsilver,
+      {@JsonKey(name: "diamond_pearl") Sprites? diamondPearl,
+      @JsonKey(name: "heartgold_soulsilver") Sprites? heartgoldSoulsilver,
       Sprites? platinum}) = _$_GenerationIv;
 
   factory _GenerationIv.fromJson(Map<String, dynamic> json) =
       _$_GenerationIv.fromJson;
 
   @override
+  @JsonKey(name: "diamond_pearl")
   Sprites? get diamondPearl;
   @override
+  @JsonKey(name: "heartgold_soulsilver")
   Sprites? get heartgoldSoulsilver;
   @override
   Sprites? get platinum;
@@ -1934,14 +2024,14 @@ class _$VersionsTearOff {
   const _$VersionsTearOff();
 
   _Versions call(
-      {GenerationI? generationI,
-      GenerationIi? generationIi,
-      GenerationIii? generationIii,
-      GenerationIv? generationIv,
-      GenerationV? generationV,
-      Map<String, Home>? generationVi,
-      GenerationVii? generationVii,
-      GenerationViii? generationViii}) {
+      {@JsonKey(name: "generation_i") GenerationI? generationI,
+      @JsonKey(name: "generation_ii") GenerationIi? generationIi,
+      @JsonKey(name: "generation_iii") GenerationIii? generationIii,
+      @JsonKey(name: "generation_iv") GenerationIv? generationIv,
+      @JsonKey(name: "generation_v") GenerationV? generationV,
+      @JsonKey(name: "generation_vi") Map<String, Home>? generationVi,
+      @JsonKey(name: "generation_vii") GenerationVii? generationVii,
+      @JsonKey(name: "generation_viii") GenerationViii? generationViii}) {
     return _Versions(
       generationI: generationI,
       generationIi: generationIi,
@@ -1964,13 +2054,21 @@ const $Versions = _$VersionsTearOff();
 
 /// @nodoc
 mixin _$Versions {
+  @JsonKey(name: "generation_i")
   GenerationI? get generationI => throw _privateConstructorUsedError;
+  @JsonKey(name: "generation_ii")
   GenerationIi? get generationIi => throw _privateConstructorUsedError;
+  @JsonKey(name: "generation_iii")
   GenerationIii? get generationIii => throw _privateConstructorUsedError;
+  @JsonKey(name: "generation_iv")
   GenerationIv? get generationIv => throw _privateConstructorUsedError;
+  @JsonKey(name: "generation_v")
   GenerationV? get generationV => throw _privateConstructorUsedError;
+  @JsonKey(name: "generation_vi")
   Map<String, Home>? get generationVi => throw _privateConstructorUsedError;
+  @JsonKey(name: "generation_vii")
   GenerationVii? get generationVii => throw _privateConstructorUsedError;
+  @JsonKey(name: "generation_viii")
   GenerationViii? get generationViii => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1984,14 +2082,14 @@ abstract class $VersionsCopyWith<$Res> {
   factory $VersionsCopyWith(Versions value, $Res Function(Versions) then) =
       _$VersionsCopyWithImpl<$Res>;
   $Res call(
-      {GenerationI? generationI,
-      GenerationIi? generationIi,
-      GenerationIii? generationIii,
-      GenerationIv? generationIv,
-      GenerationV? generationV,
-      Map<String, Home>? generationVi,
-      GenerationVii? generationVii,
-      GenerationViii? generationViii});
+      {@JsonKey(name: "generation_i") GenerationI? generationI,
+      @JsonKey(name: "generation_ii") GenerationIi? generationIi,
+      @JsonKey(name: "generation_iii") GenerationIii? generationIii,
+      @JsonKey(name: "generation_iv") GenerationIv? generationIv,
+      @JsonKey(name: "generation_v") GenerationV? generationV,
+      @JsonKey(name: "generation_vi") Map<String, Home>? generationVi,
+      @JsonKey(name: "generation_vii") GenerationVii? generationVii,
+      @JsonKey(name: "generation_viii") GenerationViii? generationViii});
 
   $GenerationICopyWith<$Res>? get generationI;
   $GenerationIiCopyWith<$Res>? get generationIi;
@@ -2141,14 +2239,14 @@ abstract class _$VersionsCopyWith<$Res> implements $VersionsCopyWith<$Res> {
       __$VersionsCopyWithImpl<$Res>;
   @override
   $Res call(
-      {GenerationI? generationI,
-      GenerationIi? generationIi,
-      GenerationIii? generationIii,
-      GenerationIv? generationIv,
-      GenerationV? generationV,
-      Map<String, Home>? generationVi,
-      GenerationVii? generationVii,
-      GenerationViii? generationViii});
+      {@JsonKey(name: "generation_i") GenerationI? generationI,
+      @JsonKey(name: "generation_ii") GenerationIi? generationIi,
+      @JsonKey(name: "generation_iii") GenerationIii? generationIii,
+      @JsonKey(name: "generation_iv") GenerationIv? generationIv,
+      @JsonKey(name: "generation_v") GenerationV? generationV,
+      @JsonKey(name: "generation_vi") Map<String, Home>? generationVi,
+      @JsonKey(name: "generation_vii") GenerationVii? generationVii,
+      @JsonKey(name: "generation_viii") GenerationViii? generationViii});
 
   @override
   $GenerationICopyWith<$Res>? get generationI;
@@ -2227,33 +2325,41 @@ class __$VersionsCopyWithImpl<$Res> extends _$VersionsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Versions implements _Versions {
   const _$_Versions(
-      {this.generationI,
-      this.generationIi,
-      this.generationIii,
-      this.generationIv,
-      this.generationV,
-      this.generationVi,
-      this.generationVii,
-      this.generationViii});
+      {@JsonKey(name: "generation_i") this.generationI,
+      @JsonKey(name: "generation_ii") this.generationIi,
+      @JsonKey(name: "generation_iii") this.generationIii,
+      @JsonKey(name: "generation_iv") this.generationIv,
+      @JsonKey(name: "generation_v") this.generationV,
+      @JsonKey(name: "generation_vi") this.generationVi,
+      @JsonKey(name: "generation_vii") this.generationVii,
+      @JsonKey(name: "generation_viii") this.generationViii});
 
   factory _$_Versions.fromJson(Map<String, dynamic> json) =>
       _$$_VersionsFromJson(json);
 
   @override
+  @JsonKey(name: "generation_i")
   final GenerationI? generationI;
   @override
+  @JsonKey(name: "generation_ii")
   final GenerationIi? generationIi;
   @override
+  @JsonKey(name: "generation_iii")
   final GenerationIii? generationIii;
   @override
+  @JsonKey(name: "generation_iv")
   final GenerationIv? generationIv;
   @override
+  @JsonKey(name: "generation_v")
   final GenerationV? generationV;
   @override
+  @JsonKey(name: "generation_vi")
   final Map<String, Home>? generationVi;
   @override
+  @JsonKey(name: "generation_vii")
   final GenerationVii? generationVii;
   @override
+  @JsonKey(name: "generation_viii")
   final GenerationViii? generationViii;
 
   @override
@@ -2309,32 +2415,41 @@ class _$_Versions implements _Versions {
 
 abstract class _Versions implements Versions {
   const factory _Versions(
-      {GenerationI? generationI,
-      GenerationIi? generationIi,
-      GenerationIii? generationIii,
-      GenerationIv? generationIv,
-      GenerationV? generationV,
-      Map<String, Home>? generationVi,
-      GenerationVii? generationVii,
-      GenerationViii? generationViii}) = _$_Versions;
+          {@JsonKey(name: "generation_i") GenerationI? generationI,
+          @JsonKey(name: "generation_ii") GenerationIi? generationIi,
+          @JsonKey(name: "generation_iii") GenerationIii? generationIii,
+          @JsonKey(name: "generation_iv") GenerationIv? generationIv,
+          @JsonKey(name: "generation_v") GenerationV? generationV,
+          @JsonKey(name: "generation_vi") Map<String, Home>? generationVi,
+          @JsonKey(name: "generation_vii") GenerationVii? generationVii,
+          @JsonKey(name: "generation_viii") GenerationViii? generationViii}) =
+      _$_Versions;
 
   factory _Versions.fromJson(Map<String, dynamic> json) = _$_Versions.fromJson;
 
   @override
+  @JsonKey(name: "generation_i")
   GenerationI? get generationI;
   @override
+  @JsonKey(name: "generation_ii")
   GenerationIi? get generationIi;
   @override
+  @JsonKey(name: "generation_iii")
   GenerationIii? get generationIii;
   @override
+  @JsonKey(name: "generation_iv")
   GenerationIv? get generationIv;
   @override
+  @JsonKey(name: "generation_v")
   GenerationV? get generationV;
   @override
+  @JsonKey(name: "generation_vi")
   Map<String, Home>? get generationVi;
   @override
+  @JsonKey(name: "generation_vii")
   GenerationVii? get generationVii;
   @override
+  @JsonKey(name: "generation_viii")
   GenerationViii? get generationViii;
   @override
   @JsonKey(ignore: true)
@@ -2351,14 +2466,14 @@ class _$SpritesTearOff {
   const _$SpritesTearOff();
 
   _Sprites call(
-      {String? backDefault,
-      dynamic? backFemale,
-      String? backShiny,
-      dynamic? backShinyFemale,
-      String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale,
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_female") dynamic? backFemale,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "back_shiny_female") dynamic? backShinyFemale,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale,
       Other? other,
       Versions? versions,
       Sprites? animated}) {
@@ -2387,13 +2502,21 @@ const $Sprites = _$SpritesTearOff();
 
 /// @nodoc
 mixin _$Sprites {
+  @JsonKey(name: "back_default")
   String? get backDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_female")
   dynamic? get backFemale => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_shiny")
   String? get backShiny => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_shiny_female")
   dynamic? get backShinyFemale => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_female")
   dynamic? get frontFemale => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny")
   String? get frontShiny => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny_female")
   dynamic? get frontShinyFemale => throw _privateConstructorUsedError;
   Other? get other => throw _privateConstructorUsedError;
   Versions? get versions => throw _privateConstructorUsedError;
@@ -2409,14 +2532,14 @@ abstract class $SpritesCopyWith<$Res> {
   factory $SpritesCopyWith(Sprites value, $Res Function(Sprites) then) =
       _$SpritesCopyWithImpl<$Res>;
   $Res call(
-      {String? backDefault,
-      dynamic? backFemale,
-      String? backShiny,
-      dynamic? backShinyFemale,
-      String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale,
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_female") dynamic? backFemale,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "back_shiny_female") dynamic? backShinyFemale,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale,
       Other? other,
       Versions? versions,
       Sprites? animated});
@@ -2536,14 +2659,14 @@ abstract class _$SpritesCopyWith<$Res> implements $SpritesCopyWith<$Res> {
       __$SpritesCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? backDefault,
-      dynamic? backFemale,
-      String? backShiny,
-      dynamic? backShinyFemale,
-      String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale,
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_female") dynamic? backFemale,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "back_shiny_female") dynamic? backShinyFemale,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale,
       Other? other,
       Versions? versions,
       Sprites? animated});
@@ -2632,14 +2755,14 @@ class __$SpritesCopyWithImpl<$Res> extends _$SpritesCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Sprites implements _Sprites {
   const _$_Sprites(
-      {this.backDefault,
-      this.backFemale,
-      this.backShiny,
-      this.backShinyFemale,
-      this.frontDefault,
-      this.frontFemale,
-      this.frontShiny,
-      this.frontShinyFemale,
+      {@JsonKey(name: "back_default") this.backDefault,
+      @JsonKey(name: "back_female") this.backFemale,
+      @JsonKey(name: "back_shiny") this.backShiny,
+      @JsonKey(name: "back_shiny_female") this.backShinyFemale,
+      @JsonKey(name: "front_default") this.frontDefault,
+      @JsonKey(name: "front_female") this.frontFemale,
+      @JsonKey(name: "front_shiny") this.frontShiny,
+      @JsonKey(name: "front_shiny_female") this.frontShinyFemale,
       this.other,
       this.versions,
       this.animated});
@@ -2648,20 +2771,28 @@ class _$_Sprites implements _Sprites {
       _$$_SpritesFromJson(json);
 
   @override
+  @JsonKey(name: "back_default")
   final String? backDefault;
   @override
+  @JsonKey(name: "back_female")
   final dynamic? backFemale;
   @override
+  @JsonKey(name: "back_shiny")
   final String? backShiny;
   @override
+  @JsonKey(name: "back_shiny_female")
   final dynamic? backShinyFemale;
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
   @override
+  @JsonKey(name: "front_female")
   final dynamic? frontFemale;
   @override
+  @JsonKey(name: "front_shiny")
   final String? frontShiny;
   @override
+  @JsonKey(name: "front_shiny_female")
   final dynamic? frontShinyFemale;
   @override
   final Other? other;
@@ -2728,14 +2859,14 @@ class _$_Sprites implements _Sprites {
 
 abstract class _Sprites implements Sprites {
   const factory _Sprites(
-      {String? backDefault,
-      dynamic? backFemale,
-      String? backShiny,
-      dynamic? backShinyFemale,
-      String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale,
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_female") dynamic? backFemale,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "back_shiny_female") dynamic? backShinyFemale,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale,
       Other? other,
       Versions? versions,
       Sprites? animated}) = _$_Sprites;
@@ -2743,20 +2874,28 @@ abstract class _Sprites implements Sprites {
   factory _Sprites.fromJson(Map<String, dynamic> json) = _$_Sprites.fromJson;
 
   @override
+  @JsonKey(name: "back_default")
   String? get backDefault;
   @override
+  @JsonKey(name: "back_female")
   dynamic? get backFemale;
   @override
+  @JsonKey(name: "back_shiny")
   String? get backShiny;
   @override
+  @JsonKey(name: "back_shiny_female")
   dynamic? get backShinyFemale;
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
+  @JsonKey(name: "front_female")
   dynamic? get frontFemale;
   @override
+  @JsonKey(name: "front_shiny")
   String? get frontShiny;
   @override
+  @JsonKey(name: "front_shiny_female")
   dynamic? get frontShinyFemale;
   @override
   Other? get other;
@@ -2778,7 +2917,8 @@ GenerationI _$GenerationIFromJson(Map<String, dynamic> json) {
 class _$GenerationITearOff {
   const _$GenerationITearOff();
 
-  _GenerationI call({RedBlue? redBlue, RedBlue? yellow}) {
+  _GenerationI call(
+      {@JsonKey(name: "red_blue") RedBlue? redBlue, RedBlue? yellow}) {
     return _GenerationI(
       redBlue: redBlue,
       yellow: yellow,
@@ -2795,6 +2935,7 @@ const $GenerationI = _$GenerationITearOff();
 
 /// @nodoc
 mixin _$GenerationI {
+  @JsonKey(name: "red_blue")
   RedBlue? get redBlue => throw _privateConstructorUsedError;
   RedBlue? get yellow => throw _privateConstructorUsedError;
 
@@ -2809,7 +2950,7 @@ abstract class $GenerationICopyWith<$Res> {
   factory $GenerationICopyWith(
           GenerationI value, $Res Function(GenerationI) then) =
       _$GenerationICopyWithImpl<$Res>;
-  $Res call({RedBlue? redBlue, RedBlue? yellow});
+  $Res call({@JsonKey(name: "red_blue") RedBlue? redBlue, RedBlue? yellow});
 
   $RedBlueCopyWith<$Res>? get redBlue;
   $RedBlueCopyWith<$Res>? get yellow;
@@ -2870,7 +3011,7 @@ abstract class _$GenerationICopyWith<$Res>
           _GenerationI value, $Res Function(_GenerationI) then) =
       __$GenerationICopyWithImpl<$Res>;
   @override
-  $Res call({RedBlue? redBlue, RedBlue? yellow});
+  $Res call({@JsonKey(name: "red_blue") RedBlue? redBlue, RedBlue? yellow});
 
   @override
   $RedBlueCopyWith<$Res>? get redBlue;
@@ -2909,12 +3050,13 @@ class __$GenerationICopyWithImpl<$Res> extends _$GenerationICopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_GenerationI implements _GenerationI {
-  const _$_GenerationI({this.redBlue, this.yellow});
+  const _$_GenerationI({@JsonKey(name: "red_blue") this.redBlue, this.yellow});
 
   factory _$_GenerationI.fromJson(Map<String, dynamic> json) =>
       _$$_GenerationIFromJson(json);
 
   @override
+  @JsonKey(name: "red_blue")
   final RedBlue? redBlue;
   @override
   final RedBlue? yellow;
@@ -2951,13 +3093,15 @@ class _$_GenerationI implements _GenerationI {
 }
 
 abstract class _GenerationI implements GenerationI {
-  const factory _GenerationI({RedBlue? redBlue, RedBlue? yellow}) =
-      _$_GenerationI;
+  const factory _GenerationI(
+      {@JsonKey(name: "red_blue") RedBlue? redBlue,
+      RedBlue? yellow}) = _$_GenerationI;
 
   factory _GenerationI.fromJson(Map<String, dynamic> json) =
       _$_GenerationI.fromJson;
 
   @override
+  @JsonKey(name: "red_blue")
   RedBlue? get redBlue;
   @override
   RedBlue? get yellow;
@@ -2976,12 +3120,12 @@ class _$RedBlueTearOff {
   const _$RedBlueTearOff();
 
   _RedBlue call(
-      {String? backDefault,
-      String? backGray,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontGray,
-      String? frontTransparent}) {
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_gray") String? backGray,
+      @JsonKey(name: "back_transparent") String? backTransparent,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_gray") String? frontGray,
+      @JsonKey(name: "front_transparent") String? frontTransparent}) {
     return _RedBlue(
       backDefault: backDefault,
       backGray: backGray,
@@ -3002,11 +3146,17 @@ const $RedBlue = _$RedBlueTearOff();
 
 /// @nodoc
 mixin _$RedBlue {
+  @JsonKey(name: "back_default")
   String? get backDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_gray")
   String? get backGray => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_transparent")
   String? get backTransparent => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_gray")
   String? get frontGray => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_transparent")
   String? get frontTransparent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -3019,12 +3169,12 @@ abstract class $RedBlueCopyWith<$Res> {
   factory $RedBlueCopyWith(RedBlue value, $Res Function(RedBlue) then) =
       _$RedBlueCopyWithImpl<$Res>;
   $Res call(
-      {String? backDefault,
-      String? backGray,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontGray,
-      String? frontTransparent});
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_gray") String? backGray,
+      @JsonKey(name: "back_transparent") String? backTransparent,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_gray") String? frontGray,
+      @JsonKey(name: "front_transparent") String? frontTransparent});
 }
 
 /// @nodoc
@@ -3079,12 +3229,12 @@ abstract class _$RedBlueCopyWith<$Res> implements $RedBlueCopyWith<$Res> {
       __$RedBlueCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? backDefault,
-      String? backGray,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontGray,
-      String? frontTransparent});
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_gray") String? backGray,
+      @JsonKey(name: "back_transparent") String? backTransparent,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_gray") String? frontGray,
+      @JsonKey(name: "front_transparent") String? frontTransparent});
 }
 
 /// @nodoc
@@ -3138,27 +3288,33 @@ class __$RedBlueCopyWithImpl<$Res> extends _$RedBlueCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RedBlue implements _RedBlue {
   const _$_RedBlue(
-      {this.backDefault,
-      this.backGray,
-      this.backTransparent,
-      this.frontDefault,
-      this.frontGray,
-      this.frontTransparent});
+      {@JsonKey(name: "back_default") this.backDefault,
+      @JsonKey(name: "back_gray") this.backGray,
+      @JsonKey(name: "back_transparent") this.backTransparent,
+      @JsonKey(name: "front_default") this.frontDefault,
+      @JsonKey(name: "front_gray") this.frontGray,
+      @JsonKey(name: "front_transparent") this.frontTransparent});
 
   factory _$_RedBlue.fromJson(Map<String, dynamic> json) =>
       _$$_RedBlueFromJson(json);
 
   @override
+  @JsonKey(name: "back_default")
   final String? backDefault;
   @override
+  @JsonKey(name: "back_gray")
   final String? backGray;
   @override
+  @JsonKey(name: "back_transparent")
   final String? backTransparent;
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
   @override
+  @JsonKey(name: "front_gray")
   final String? frontGray;
   @override
+  @JsonKey(name: "front_transparent")
   final String? frontTransparent;
 
   @override
@@ -3206,26 +3362,33 @@ class _$_RedBlue implements _RedBlue {
 
 abstract class _RedBlue implements RedBlue {
   const factory _RedBlue(
-      {String? backDefault,
-      String? backGray,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontGray,
-      String? frontTransparent}) = _$_RedBlue;
+          {@JsonKey(name: "back_default") String? backDefault,
+          @JsonKey(name: "back_gray") String? backGray,
+          @JsonKey(name: "back_transparent") String? backTransparent,
+          @JsonKey(name: "front_default") String? frontDefault,
+          @JsonKey(name: "front_gray") String? frontGray,
+          @JsonKey(name: "front_transparent") String? frontTransparent}) =
+      _$_RedBlue;
 
   factory _RedBlue.fromJson(Map<String, dynamic> json) = _$_RedBlue.fromJson;
 
   @override
+  @JsonKey(name: "back_default")
   String? get backDefault;
   @override
+  @JsonKey(name: "back_gray")
   String? get backGray;
   @override
+  @JsonKey(name: "back_transparent")
   String? get backTransparent;
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
+  @JsonKey(name: "front_gray")
   String? get frontGray;
   @override
+  @JsonKey(name: "front_transparent")
   String? get frontTransparent;
   @override
   @JsonKey(ignore: true)
@@ -3471,14 +3634,14 @@ class _$CrystalTearOff {
   const _$CrystalTearOff();
 
   _Crystal call(
-      {String? backDefault,
-      String? backShiny,
-      String? backShinyTransparent,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontShinyTransparent,
-      String? frontTransparent}) {
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "back_shiny_transparent") String? backShinyTransparent,
+      @JsonKey(name: "back_transparent") String? backTransparent,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_transparent") String? frontShinyTransparent,
+      @JsonKey(name: "front_transparent") String? frontTransparent}) {
     return _Crystal(
       backDefault: backDefault,
       backShiny: backShiny,
@@ -3501,13 +3664,21 @@ const $Crystal = _$CrystalTearOff();
 
 /// @nodoc
 mixin _$Crystal {
+  @JsonKey(name: "back_default")
   String? get backDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_shiny")
   String? get backShiny => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_shiny_transparent")
   String? get backShinyTransparent => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_transparent")
   String? get backTransparent => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny")
   String? get frontShiny => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny_transparent")
   String? get frontShinyTransparent => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_transparent")
   String? get frontTransparent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -3520,14 +3691,14 @@ abstract class $CrystalCopyWith<$Res> {
   factory $CrystalCopyWith(Crystal value, $Res Function(Crystal) then) =
       _$CrystalCopyWithImpl<$Res>;
   $Res call(
-      {String? backDefault,
-      String? backShiny,
-      String? backShinyTransparent,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontShinyTransparent,
-      String? frontTransparent});
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "back_shiny_transparent") String? backShinyTransparent,
+      @JsonKey(name: "back_transparent") String? backTransparent,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_transparent") String? frontShinyTransparent,
+      @JsonKey(name: "front_transparent") String? frontTransparent});
 }
 
 /// @nodoc
@@ -3592,14 +3763,14 @@ abstract class _$CrystalCopyWith<$Res> implements $CrystalCopyWith<$Res> {
       __$CrystalCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? backDefault,
-      String? backShiny,
-      String? backShinyTransparent,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontShinyTransparent,
-      String? frontTransparent});
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "back_shiny_transparent") String? backShinyTransparent,
+      @JsonKey(name: "back_transparent") String? backTransparent,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_transparent") String? frontShinyTransparent,
+      @JsonKey(name: "front_transparent") String? frontTransparent});
 }
 
 /// @nodoc
@@ -3663,33 +3834,41 @@ class __$CrystalCopyWithImpl<$Res> extends _$CrystalCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Crystal implements _Crystal {
   const _$_Crystal(
-      {this.backDefault,
-      this.backShiny,
-      this.backShinyTransparent,
-      this.backTransparent,
-      this.frontDefault,
-      this.frontShiny,
-      this.frontShinyTransparent,
-      this.frontTransparent});
+      {@JsonKey(name: "back_default") this.backDefault,
+      @JsonKey(name: "back_shiny") this.backShiny,
+      @JsonKey(name: "back_shiny_transparent") this.backShinyTransparent,
+      @JsonKey(name: "back_transparent") this.backTransparent,
+      @JsonKey(name: "front_default") this.frontDefault,
+      @JsonKey(name: "front_shiny") this.frontShiny,
+      @JsonKey(name: "front_shiny_transparent") this.frontShinyTransparent,
+      @JsonKey(name: "front_transparent") this.frontTransparent});
 
   factory _$_Crystal.fromJson(Map<String, dynamic> json) =>
       _$$_CrystalFromJson(json);
 
   @override
+  @JsonKey(name: "back_default")
   final String? backDefault;
   @override
+  @JsonKey(name: "back_shiny")
   final String? backShiny;
   @override
+  @JsonKey(name: "back_shiny_transparent")
   final String? backShinyTransparent;
   @override
+  @JsonKey(name: "back_transparent")
   final String? backTransparent;
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
   @override
+  @JsonKey(name: "front_shiny")
   final String? frontShiny;
   @override
+  @JsonKey(name: "front_shiny_transparent")
   final String? frontShinyTransparent;
   @override
+  @JsonKey(name: "front_transparent")
   final String? frontTransparent;
 
   @override
@@ -3744,32 +3923,48 @@ class _$_Crystal implements _Crystal {
 
 abstract class _Crystal implements Crystal {
   const factory _Crystal(
-      {String? backDefault,
-      String? backShiny,
-      String? backShinyTransparent,
-      String? backTransparent,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontShinyTransparent,
-      String? frontTransparent}) = _$_Crystal;
+      {@JsonKey(name: "back_default")
+          String? backDefault,
+      @JsonKey(name: "back_shiny")
+          String? backShiny,
+      @JsonKey(name: "back_shiny_transparent")
+          String? backShinyTransparent,
+      @JsonKey(name: "back_transparent")
+          String? backTransparent,
+      @JsonKey(name: "front_default")
+          String? frontDefault,
+      @JsonKey(name: "front_shiny")
+          String? frontShiny,
+      @JsonKey(name: "front_shiny_transparent")
+          String? frontShinyTransparent,
+      @JsonKey(name: "front_transparent")
+          String? frontTransparent}) = _$_Crystal;
 
   factory _Crystal.fromJson(Map<String, dynamic> json) = _$_Crystal.fromJson;
 
   @override
+  @JsonKey(name: "back_default")
   String? get backDefault;
   @override
+  @JsonKey(name: "back_shiny")
   String? get backShiny;
   @override
+  @JsonKey(name: "back_shiny_transparent")
   String? get backShinyTransparent;
   @override
+  @JsonKey(name: "back_transparent")
   String? get backTransparent;
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
+  @JsonKey(name: "front_shiny")
   String? get frontShiny;
   @override
+  @JsonKey(name: "front_shiny_transparent")
   String? get frontShinyTransparent;
   @override
+  @JsonKey(name: "front_transparent")
   String? get frontTransparent;
   @override
   @JsonKey(ignore: true)
@@ -3786,11 +3981,11 @@ class _$GoldTearOff {
   const _$GoldTearOff();
 
   _Gold call(
-      {String? backDefault,
-      String? backShiny,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontTransparent}) {
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_transparent") String? frontTransparent}) {
     return _Gold(
       backDefault: backDefault,
       backShiny: backShiny,
@@ -3810,10 +4005,15 @@ const $Gold = _$GoldTearOff();
 
 /// @nodoc
 mixin _$Gold {
+  @JsonKey(name: "back_default")
   String? get backDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "back_shiny")
   String? get backShiny => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny")
   String? get frontShiny => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_transparent")
   String? get frontTransparent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -3826,11 +4026,11 @@ abstract class $GoldCopyWith<$Res> {
   factory $GoldCopyWith(Gold value, $Res Function(Gold) then) =
       _$GoldCopyWithImpl<$Res>;
   $Res call(
-      {String? backDefault,
-      String? backShiny,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontTransparent});
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_transparent") String? frontTransparent});
 }
 
 /// @nodoc
@@ -3880,11 +4080,11 @@ abstract class _$GoldCopyWith<$Res> implements $GoldCopyWith<$Res> {
       __$GoldCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? backDefault,
-      String? backShiny,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontTransparent});
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_transparent") String? frontTransparent});
 }
 
 /// @nodoc
@@ -3933,23 +4133,28 @@ class __$GoldCopyWithImpl<$Res> extends _$GoldCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Gold implements _Gold {
   const _$_Gold(
-      {this.backDefault,
-      this.backShiny,
-      this.frontDefault,
-      this.frontShiny,
-      this.frontTransparent});
+      {@JsonKey(name: "back_default") this.backDefault,
+      @JsonKey(name: "back_shiny") this.backShiny,
+      @JsonKey(name: "front_default") this.frontDefault,
+      @JsonKey(name: "front_shiny") this.frontShiny,
+      @JsonKey(name: "front_transparent") this.frontTransparent});
 
   factory _$_Gold.fromJson(Map<String, dynamic> json) => _$$_GoldFromJson(json);
 
   @override
+  @JsonKey(name: "back_default")
   final String? backDefault;
   @override
+  @JsonKey(name: "back_shiny")
   final String? backShiny;
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
   @override
+  @JsonKey(name: "front_shiny")
   final String? frontShiny;
   @override
+  @JsonKey(name: "front_transparent")
   final String? frontTransparent;
 
   @override
@@ -3995,23 +4200,28 @@ class _$_Gold implements _Gold {
 
 abstract class _Gold implements Gold {
   const factory _Gold(
-      {String? backDefault,
-      String? backShiny,
-      String? frontDefault,
-      String? frontShiny,
-      String? frontTransparent}) = _$_Gold;
+      {@JsonKey(name: "back_default") String? backDefault,
+      @JsonKey(name: "back_shiny") String? backShiny,
+      @JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_transparent") String? frontTransparent}) = _$_Gold;
 
   factory _Gold.fromJson(Map<String, dynamic> json) = _$_Gold.fromJson;
 
   @override
+  @JsonKey(name: "back_default")
   String? get backDefault;
   @override
+  @JsonKey(name: "back_shiny")
   String? get backShiny;
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
+  @JsonKey(name: "front_shiny")
   String? get frontShiny;
   @override
+  @JsonKey(name: "front_transparent")
   String? get frontTransparent;
   @override
   @JsonKey(ignore: true)
@@ -4027,7 +4237,9 @@ class _$GenerationIiiTearOff {
   const _$GenerationIiiTearOff();
 
   _GenerationIii call(
-      {Emerald? emerald, Gold? fireredLeafgreen, Gold? rubySapphire}) {
+      {Emerald? emerald,
+      @JsonKey(name: "firered_leafgreen") Gold? fireredLeafgreen,
+      @JsonKey(name: "ruby_sapphire") Gold? rubySapphire}) {
     return _GenerationIii(
       emerald: emerald,
       fireredLeafgreen: fireredLeafgreen,
@@ -4046,7 +4258,9 @@ const $GenerationIii = _$GenerationIiiTearOff();
 /// @nodoc
 mixin _$GenerationIii {
   Emerald? get emerald => throw _privateConstructorUsedError;
+  @JsonKey(name: "firered_leafgreen")
   Gold? get fireredLeafgreen => throw _privateConstructorUsedError;
+  @JsonKey(name: "ruby_sapphire")
   Gold? get rubySapphire => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4060,7 +4274,10 @@ abstract class $GenerationIiiCopyWith<$Res> {
   factory $GenerationIiiCopyWith(
           GenerationIii value, $Res Function(GenerationIii) then) =
       _$GenerationIiiCopyWithImpl<$Res>;
-  $Res call({Emerald? emerald, Gold? fireredLeafgreen, Gold? rubySapphire});
+  $Res call(
+      {Emerald? emerald,
+      @JsonKey(name: "firered_leafgreen") Gold? fireredLeafgreen,
+      @JsonKey(name: "ruby_sapphire") Gold? rubySapphire});
 
   $EmeraldCopyWith<$Res>? get emerald;
   $GoldCopyWith<$Res>? get fireredLeafgreen;
@@ -4139,7 +4356,10 @@ abstract class _$GenerationIiiCopyWith<$Res>
           _GenerationIii value, $Res Function(_GenerationIii) then) =
       __$GenerationIiiCopyWithImpl<$Res>;
   @override
-  $Res call({Emerald? emerald, Gold? fireredLeafgreen, Gold? rubySapphire});
+  $Res call(
+      {Emerald? emerald,
+      @JsonKey(name: "firered_leafgreen") Gold? fireredLeafgreen,
+      @JsonKey(name: "ruby_sapphire") Gold? rubySapphire});
 
   @override
   $EmeraldCopyWith<$Res>? get emerald;
@@ -4187,7 +4407,9 @@ class __$GenerationIiiCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GenerationIii implements _GenerationIii {
   const _$_GenerationIii(
-      {this.emerald, this.fireredLeafgreen, this.rubySapphire});
+      {this.emerald,
+      @JsonKey(name: "firered_leafgreen") this.fireredLeafgreen,
+      @JsonKey(name: "ruby_sapphire") this.rubySapphire});
 
   factory _$_GenerationIii.fromJson(Map<String, dynamic> json) =>
       _$$_GenerationIiiFromJson(json);
@@ -4195,8 +4417,10 @@ class _$_GenerationIii implements _GenerationIii {
   @override
   final Emerald? emerald;
   @override
+  @JsonKey(name: "firered_leafgreen")
   final Gold? fireredLeafgreen;
   @override
+  @JsonKey(name: "ruby_sapphire")
   final Gold? rubySapphire;
 
   @override
@@ -4237,8 +4461,8 @@ class _$_GenerationIii implements _GenerationIii {
 abstract class _GenerationIii implements GenerationIii {
   const factory _GenerationIii(
       {Emerald? emerald,
-      Gold? fireredLeafgreen,
-      Gold? rubySapphire}) = _$_GenerationIii;
+      @JsonKey(name: "firered_leafgreen") Gold? fireredLeafgreen,
+      @JsonKey(name: "ruby_sapphire") Gold? rubySapphire}) = _$_GenerationIii;
 
   factory _GenerationIii.fromJson(Map<String, dynamic> json) =
       _$_GenerationIii.fromJson;
@@ -4246,8 +4470,10 @@ abstract class _GenerationIii implements GenerationIii {
   @override
   Emerald? get emerald;
   @override
+  @JsonKey(name: "firered_leafgreen")
   Gold? get fireredLeafgreen;
   @override
+  @JsonKey(name: "ruby_sapphire")
   Gold? get rubySapphire;
   @override
   @JsonKey(ignore: true)
@@ -4263,7 +4489,9 @@ Emerald _$EmeraldFromJson(Map<String, dynamic> json) {
 class _$EmeraldTearOff {
   const _$EmeraldTearOff();
 
-  _Emerald call({String? frontDefault, String? frontShiny}) {
+  _Emerald call(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny}) {
     return _Emerald(
       frontDefault: frontDefault,
       frontShiny: frontShiny,
@@ -4280,7 +4508,9 @@ const $Emerald = _$EmeraldTearOff();
 
 /// @nodoc
 mixin _$Emerald {
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny")
   String? get frontShiny => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4292,7 +4522,9 @@ mixin _$Emerald {
 abstract class $EmeraldCopyWith<$Res> {
   factory $EmeraldCopyWith(Emerald value, $Res Function(Emerald) then) =
       _$EmeraldCopyWithImpl<$Res>;
-  $Res call({String? frontDefault, String? frontShiny});
+  $Res call(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny});
 }
 
 /// @nodoc
@@ -4326,7 +4558,9 @@ abstract class _$EmeraldCopyWith<$Res> implements $EmeraldCopyWith<$Res> {
   factory _$EmeraldCopyWith(_Emerald value, $Res Function(_Emerald) then) =
       __$EmeraldCopyWithImpl<$Res>;
   @override
-  $Res call({String? frontDefault, String? frontShiny});
+  $Res call(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny});
 }
 
 /// @nodoc
@@ -4359,14 +4593,18 @@ class __$EmeraldCopyWithImpl<$Res> extends _$EmeraldCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Emerald implements _Emerald {
-  const _$_Emerald({this.frontDefault, this.frontShiny});
+  const _$_Emerald(
+      {@JsonKey(name: "front_default") this.frontDefault,
+      @JsonKey(name: "front_shiny") this.frontShiny});
 
   factory _$_Emerald.fromJson(Map<String, dynamic> json) =>
       _$$_EmeraldFromJson(json);
 
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
   @override
+  @JsonKey(name: "front_shiny")
   final String? frontShiny;
 
   @override
@@ -4403,14 +4641,17 @@ class _$_Emerald implements _Emerald {
 }
 
 abstract class _Emerald implements Emerald {
-  const factory _Emerald({String? frontDefault, String? frontShiny}) =
-      _$_Emerald;
+  const factory _Emerald(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_shiny") String? frontShiny}) = _$_Emerald;
 
   factory _Emerald.fromJson(Map<String, dynamic> json) = _$_Emerald.fromJson;
 
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
+  @JsonKey(name: "front_shiny")
   String? get frontShiny;
   @override
   @JsonKey(ignore: true)
@@ -4427,10 +4668,10 @@ class _$HomeTearOff {
   const _$HomeTearOff();
 
   _Home call(
-      {String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale}) {
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale}) {
     return _Home(
       frontDefault: frontDefault,
       frontFemale: frontFemale,
@@ -4449,9 +4690,13 @@ const $Home = _$HomeTearOff();
 
 /// @nodoc
 mixin _$Home {
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_female")
   dynamic? get frontFemale => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny")
   String? get frontShiny => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_shiny_female")
   dynamic? get frontShinyFemale => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4464,10 +4709,10 @@ abstract class $HomeCopyWith<$Res> {
   factory $HomeCopyWith(Home value, $Res Function(Home) then) =
       _$HomeCopyWithImpl<$Res>;
   $Res call(
-      {String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale});
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale});
 }
 
 /// @nodoc
@@ -4512,10 +4757,10 @@ abstract class _$HomeCopyWith<$Res> implements $HomeCopyWith<$Res> {
       __$HomeCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale});
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale,
+      @JsonKey(name: "front_shiny") String? frontShiny,
+      @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale});
 }
 
 /// @nodoc
@@ -4559,20 +4804,24 @@ class __$HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Home implements _Home {
   const _$_Home(
-      {this.frontDefault,
-      this.frontFemale,
-      this.frontShiny,
-      this.frontShinyFemale});
+      {@JsonKey(name: "front_default") this.frontDefault,
+      @JsonKey(name: "front_female") this.frontFemale,
+      @JsonKey(name: "front_shiny") this.frontShiny,
+      @JsonKey(name: "front_shiny_female") this.frontShinyFemale});
 
   factory _$_Home.fromJson(Map<String, dynamic> json) => _$$_HomeFromJson(json);
 
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
   @override
+  @JsonKey(name: "front_female")
   final dynamic? frontFemale;
   @override
+  @JsonKey(name: "front_shiny")
   final String? frontShiny;
   @override
+  @JsonKey(name: "front_shiny_female")
   final dynamic? frontShinyFemale;
 
   @override
@@ -4616,20 +4865,25 @@ class _$_Home implements _Home {
 
 abstract class _Home implements Home {
   const factory _Home(
-      {String? frontDefault,
-      dynamic? frontFemale,
-      String? frontShiny,
-      dynamic? frontShinyFemale}) = _$_Home;
+          {@JsonKey(name: "front_default") String? frontDefault,
+          @JsonKey(name: "front_female") dynamic? frontFemale,
+          @JsonKey(name: "front_shiny") String? frontShiny,
+          @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale}) =
+      _$_Home;
 
   factory _Home.fromJson(Map<String, dynamic> json) = _$_Home.fromJson;
 
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
+  @JsonKey(name: "front_female")
   dynamic? get frontFemale;
   @override
+  @JsonKey(name: "front_shiny")
   String? get frontShiny;
   @override
+  @JsonKey(name: "front_shiny_female")
   dynamic? get frontShinyFemale;
   @override
   @JsonKey(ignore: true)
@@ -4644,7 +4898,9 @@ GenerationVii _$GenerationViiFromJson(Map<String, dynamic> json) {
 class _$GenerationViiTearOff {
   const _$GenerationViiTearOff();
 
-  _GenerationVii call({DreamWorld? icons, Home? ultraSunUltraMoon}) {
+  _GenerationVii call(
+      {DreamWorld? icons,
+      @JsonKey(name: "ultra_sun_ultra_moon") Home? ultraSunUltraMoon}) {
     return _GenerationVii(
       icons: icons,
       ultraSunUltraMoon: ultraSunUltraMoon,
@@ -4662,6 +4918,7 @@ const $GenerationVii = _$GenerationViiTearOff();
 /// @nodoc
 mixin _$GenerationVii {
   DreamWorld? get icons => throw _privateConstructorUsedError;
+  @JsonKey(name: "ultra_sun_ultra_moon")
   Home? get ultraSunUltraMoon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4675,7 +4932,9 @@ abstract class $GenerationViiCopyWith<$Res> {
   factory $GenerationViiCopyWith(
           GenerationVii value, $Res Function(GenerationVii) then) =
       _$GenerationViiCopyWithImpl<$Res>;
-  $Res call({DreamWorld? icons, Home? ultraSunUltraMoon});
+  $Res call(
+      {DreamWorld? icons,
+      @JsonKey(name: "ultra_sun_ultra_moon") Home? ultraSunUltraMoon});
 
   $DreamWorldCopyWith<$Res>? get icons;
   $HomeCopyWith<$Res>? get ultraSunUltraMoon;
@@ -4737,7 +4996,9 @@ abstract class _$GenerationViiCopyWith<$Res>
           _GenerationVii value, $Res Function(_GenerationVii) then) =
       __$GenerationViiCopyWithImpl<$Res>;
   @override
-  $Res call({DreamWorld? icons, Home? ultraSunUltraMoon});
+  $Res call(
+      {DreamWorld? icons,
+      @JsonKey(name: "ultra_sun_ultra_moon") Home? ultraSunUltraMoon});
 
   @override
   $DreamWorldCopyWith<$Res>? get icons;
@@ -4777,7 +5038,9 @@ class __$GenerationViiCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_GenerationVii implements _GenerationVii {
-  const _$_GenerationVii({this.icons, this.ultraSunUltraMoon});
+  const _$_GenerationVii(
+      {this.icons,
+      @JsonKey(name: "ultra_sun_ultra_moon") this.ultraSunUltraMoon});
 
   factory _$_GenerationVii.fromJson(Map<String, dynamic> json) =>
       _$$_GenerationViiFromJson(json);
@@ -4785,6 +5048,7 @@ class _$_GenerationVii implements _GenerationVii {
   @override
   final DreamWorld? icons;
   @override
+  @JsonKey(name: "ultra_sun_ultra_moon")
   final Home? ultraSunUltraMoon;
 
   @override
@@ -4820,7 +5084,9 @@ class _$_GenerationVii implements _GenerationVii {
 }
 
 abstract class _GenerationVii implements GenerationVii {
-  const factory _GenerationVii({DreamWorld? icons, Home? ultraSunUltraMoon}) =
+  const factory _GenerationVii(
+          {DreamWorld? icons,
+          @JsonKey(name: "ultra_sun_ultra_moon") Home? ultraSunUltraMoon}) =
       _$_GenerationVii;
 
   factory _GenerationVii.fromJson(Map<String, dynamic> json) =
@@ -4829,6 +5095,7 @@ abstract class _GenerationVii implements GenerationVii {
   @override
   DreamWorld? get icons;
   @override
+  @JsonKey(name: "ultra_sun_ultra_moon")
   Home? get ultraSunUltraMoon;
   @override
   @JsonKey(ignore: true)
@@ -4844,7 +5111,9 @@ DreamWorld _$DreamWorldFromJson(Map<String, dynamic> json) {
 class _$DreamWorldTearOff {
   const _$DreamWorldTearOff();
 
-  _DreamWorld call({String? frontDefault, dynamic? frontFemale}) {
+  _DreamWorld call(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale}) {
     return _DreamWorld(
       frontDefault: frontDefault,
       frontFemale: frontFemale,
@@ -4861,7 +5130,9 @@ const $DreamWorld = _$DreamWorldTearOff();
 
 /// @nodoc
 mixin _$DreamWorld {
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
+  @JsonKey(name: "front_female")
   dynamic? get frontFemale => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4875,7 +5146,9 @@ abstract class $DreamWorldCopyWith<$Res> {
   factory $DreamWorldCopyWith(
           DreamWorld value, $Res Function(DreamWorld) then) =
       _$DreamWorldCopyWithImpl<$Res>;
-  $Res call({String? frontDefault, dynamic? frontFemale});
+  $Res call(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale});
 }
 
 /// @nodoc
@@ -4910,7 +5183,9 @@ abstract class _$DreamWorldCopyWith<$Res> implements $DreamWorldCopyWith<$Res> {
           _DreamWorld value, $Res Function(_DreamWorld) then) =
       __$DreamWorldCopyWithImpl<$Res>;
   @override
-  $Res call({String? frontDefault, dynamic? frontFemale});
+  $Res call(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale});
 }
 
 /// @nodoc
@@ -4944,14 +5219,18 @@ class __$DreamWorldCopyWithImpl<$Res> extends _$DreamWorldCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DreamWorld implements _DreamWorld {
-  const _$_DreamWorld({this.frontDefault, this.frontFemale});
+  const _$_DreamWorld(
+      {@JsonKey(name: "front_default") this.frontDefault,
+      @JsonKey(name: "front_female") this.frontFemale});
 
   factory _$_DreamWorld.fromJson(Map<String, dynamic> json) =>
       _$$_DreamWorldFromJson(json);
 
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
   @override
+  @JsonKey(name: "front_female")
   final dynamic? frontFemale;
 
   @override
@@ -4988,15 +5267,18 @@ class _$_DreamWorld implements _DreamWorld {
 }
 
 abstract class _DreamWorld implements DreamWorld {
-  const factory _DreamWorld({String? frontDefault, dynamic? frontFemale}) =
-      _$_DreamWorld;
+  const factory _DreamWorld(
+      {@JsonKey(name: "front_default") String? frontDefault,
+      @JsonKey(name: "front_female") dynamic? frontFemale}) = _$_DreamWorld;
 
   factory _DreamWorld.fromJson(Map<String, dynamic> json) =
       _$_DreamWorld.fromJson;
 
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
+  @JsonKey(name: "front_female")
   dynamic? get frontFemale;
   @override
   @JsonKey(ignore: true)
@@ -5178,7 +5460,9 @@ class _$OtherTearOff {
   const _$OtherTearOff();
 
   _Other call(
-      {DreamWorld? dreamWorld, Home? home, OfficialArtwork? officialArtwork}) {
+      {@JsonKey(name: "dream_world") DreamWorld? dreamWorld,
+      Home? home,
+      @JsonKey(name: "official_artwork") OfficialArtwork? officialArtwork}) {
     return _Other(
       dreamWorld: dreamWorld,
       home: home,
@@ -5196,8 +5480,10 @@ const $Other = _$OtherTearOff();
 
 /// @nodoc
 mixin _$Other {
+  @JsonKey(name: "dream_world")
   DreamWorld? get dreamWorld => throw _privateConstructorUsedError;
   Home? get home => throw _privateConstructorUsedError;
+  @JsonKey(name: "official_artwork")
   OfficialArtwork? get officialArtwork => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -5210,7 +5496,9 @@ abstract class $OtherCopyWith<$Res> {
   factory $OtherCopyWith(Other value, $Res Function(Other) then) =
       _$OtherCopyWithImpl<$Res>;
   $Res call(
-      {DreamWorld? dreamWorld, Home? home, OfficialArtwork? officialArtwork});
+      {@JsonKey(name: "dream_world") DreamWorld? dreamWorld,
+      Home? home,
+      @JsonKey(name: "official_artwork") OfficialArtwork? officialArtwork});
 
   $DreamWorldCopyWith<$Res>? get dreamWorld;
   $HomeCopyWith<$Res>? get home;
@@ -5287,7 +5575,9 @@ abstract class _$OtherCopyWith<$Res> implements $OtherCopyWith<$Res> {
       __$OtherCopyWithImpl<$Res>;
   @override
   $Res call(
-      {DreamWorld? dreamWorld, Home? home, OfficialArtwork? officialArtwork});
+      {@JsonKey(name: "dream_world") DreamWorld? dreamWorld,
+      Home? home,
+      @JsonKey(name: "official_artwork") OfficialArtwork? officialArtwork});
 
   @override
   $DreamWorldCopyWith<$Res>? get dreamWorld;
@@ -5332,16 +5622,21 @@ class __$OtherCopyWithImpl<$Res> extends _$OtherCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Other implements _Other {
-  const _$_Other({this.dreamWorld, this.home, this.officialArtwork});
+  const _$_Other(
+      {@JsonKey(name: "dream_world") this.dreamWorld,
+      this.home,
+      @JsonKey(name: "official_artwork") this.officialArtwork});
 
   factory _$_Other.fromJson(Map<String, dynamic> json) =>
       _$$_OtherFromJson(json);
 
   @override
+  @JsonKey(name: "dream_world")
   final DreamWorld? dreamWorld;
   @override
   final Home? home;
   @override
+  @JsonKey(name: "official_artwork")
   final OfficialArtwork? officialArtwork;
 
   @override
@@ -5381,17 +5676,21 @@ class _$_Other implements _Other {
 
 abstract class _Other implements Other {
   const factory _Other(
-      {DreamWorld? dreamWorld,
+      {@JsonKey(name: "dream_world")
+          DreamWorld? dreamWorld,
       Home? home,
-      OfficialArtwork? officialArtwork}) = _$_Other;
+      @JsonKey(name: "official_artwork")
+          OfficialArtwork? officialArtwork}) = _$_Other;
 
   factory _Other.fromJson(Map<String, dynamic> json) = _$_Other.fromJson;
 
   @override
+  @JsonKey(name: "dream_world")
   DreamWorld? get dreamWorld;
   @override
   Home? get home;
   @override
+  @JsonKey(name: "official_artwork")
   OfficialArtwork? get officialArtwork;
   @override
   @JsonKey(ignore: true)
@@ -5406,7 +5705,8 @@ OfficialArtwork _$OfficialArtworkFromJson(Map<String, dynamic> json) {
 class _$OfficialArtworkTearOff {
   const _$OfficialArtworkTearOff();
 
-  _OfficialArtwork call({String? frontDefault}) {
+  _OfficialArtwork call(
+      {@JsonKey(name: "front_default") String? frontDefault}) {
     return _OfficialArtwork(
       frontDefault: frontDefault,
     );
@@ -5422,6 +5722,7 @@ const $OfficialArtwork = _$OfficialArtworkTearOff();
 
 /// @nodoc
 mixin _$OfficialArtwork {
+  @JsonKey(name: "front_default")
   String? get frontDefault => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -5435,7 +5736,7 @@ abstract class $OfficialArtworkCopyWith<$Res> {
   factory $OfficialArtworkCopyWith(
           OfficialArtwork value, $Res Function(OfficialArtwork) then) =
       _$OfficialArtworkCopyWithImpl<$Res>;
-  $Res call({String? frontDefault});
+  $Res call({@JsonKey(name: "front_default") String? frontDefault});
 }
 
 /// @nodoc
@@ -5467,7 +5768,7 @@ abstract class _$OfficialArtworkCopyWith<$Res>
           _OfficialArtwork value, $Res Function(_OfficialArtwork) then) =
       __$OfficialArtworkCopyWithImpl<$Res>;
   @override
-  $Res call({String? frontDefault});
+  $Res call({@JsonKey(name: "front_default") String? frontDefault});
 }
 
 /// @nodoc
@@ -5497,12 +5798,13 @@ class __$OfficialArtworkCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_OfficialArtwork implements _OfficialArtwork {
-  const _$_OfficialArtwork({this.frontDefault});
+  const _$_OfficialArtwork({@JsonKey(name: "front_default") this.frontDefault});
 
   factory _$_OfficialArtwork.fromJson(Map<String, dynamic> json) =>
       _$$_OfficialArtworkFromJson(json);
 
   @override
+  @JsonKey(name: "front_default")
   final String? frontDefault;
 
   @override
@@ -5535,12 +5837,15 @@ class _$_OfficialArtwork implements _OfficialArtwork {
 }
 
 abstract class _OfficialArtwork implements OfficialArtwork {
-  const factory _OfficialArtwork({String? frontDefault}) = _$_OfficialArtwork;
+  const factory _OfficialArtwork(
+          {@JsonKey(name: "front_default") String? frontDefault}) =
+      _$_OfficialArtwork;
 
   factory _OfficialArtwork.fromJson(Map<String, dynamic> json) =
       _$_OfficialArtwork.fromJson;
 
   @override
+  @JsonKey(name: "front_default")
   String? get frontDefault;
   @override
   @JsonKey(ignore: true)
@@ -5556,7 +5861,8 @@ Stat _$StatFromJson(Map<String, dynamic> json) {
 class _$StatTearOff {
   const _$StatTearOff();
 
-  _Stat call({int? baseStat, int? effort, Species? stat}) {
+  _Stat call(
+      {@JsonKey(name: "base_stat") int? baseStat, int? effort, Species? stat}) {
     return _Stat(
       baseStat: baseStat,
       effort: effort,
@@ -5574,6 +5880,7 @@ const $Stat = _$StatTearOff();
 
 /// @nodoc
 mixin _$Stat {
+  @JsonKey(name: "base_stat")
   int? get baseStat => throw _privateConstructorUsedError;
   int? get effort => throw _privateConstructorUsedError;
   Species? get stat => throw _privateConstructorUsedError;
@@ -5587,7 +5894,8 @@ mixin _$Stat {
 abstract class $StatCopyWith<$Res> {
   factory $StatCopyWith(Stat value, $Res Function(Stat) then) =
       _$StatCopyWithImpl<$Res>;
-  $Res call({int? baseStat, int? effort, Species? stat});
+  $Res call(
+      {@JsonKey(name: "base_stat") int? baseStat, int? effort, Species? stat});
 
   $SpeciesCopyWith<$Res>? get stat;
 }
@@ -5639,7 +5947,8 @@ abstract class _$StatCopyWith<$Res> implements $StatCopyWith<$Res> {
   factory _$StatCopyWith(_Stat value, $Res Function(_Stat) then) =
       __$StatCopyWithImpl<$Res>;
   @override
-  $Res call({int? baseStat, int? effort, Species? stat});
+  $Res call(
+      {@JsonKey(name: "base_stat") int? baseStat, int? effort, Species? stat});
 
   @override
   $SpeciesCopyWith<$Res>? get stat;
@@ -5680,11 +5989,13 @@ class __$StatCopyWithImpl<$Res> extends _$StatCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Stat implements _Stat {
-  const _$_Stat({this.baseStat, this.effort, this.stat});
+  const _$_Stat(
+      {@JsonKey(name: "base_stat") this.baseStat, this.effort, this.stat});
 
   factory _$_Stat.fromJson(Map<String, dynamic> json) => _$$_StatFromJson(json);
 
   @override
+  @JsonKey(name: "base_stat")
   final int? baseStat;
   @override
   final int? effort;
@@ -5725,11 +6036,15 @@ class _$_Stat implements _Stat {
 }
 
 abstract class _Stat implements Stat {
-  const factory _Stat({int? baseStat, int? effort, Species? stat}) = _$_Stat;
+  const factory _Stat(
+      {@JsonKey(name: "base_stat") int? baseStat,
+      int? effort,
+      Species? stat}) = _$_Stat;
 
   factory _Stat.fromJson(Map<String, dynamic> json) = _$_Stat.fromJson;
 
   @override
+  @JsonKey(name: "base_stat")
   int? get baseStat;
   @override
   int? get effort;

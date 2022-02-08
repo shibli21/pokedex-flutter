@@ -38,6 +38,7 @@ dependencies:
   freezed_annotation: ^1.1.0
   flutter_svg: ^1.0.3
   google_fonts: ^2.3.1
+  percent_indicator: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -78,7 +79,7 @@ flutter:
     - assets/poke-types/ground.svg
     - assets/poke-types/ice.svg
     - assets/poke-types/normal.svg
-    - assets/poke-types/physic.svg
+    - assets/poke-types/psychic.svg
     - assets/poke-types/poison.svg
     - assets/poke-types/rock.svg
     - assets/poke-types/steel.svg

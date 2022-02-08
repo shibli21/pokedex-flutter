@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
 
@@ -12,18 +14,18 @@ String pokemonToJson(Pokemon data) => json.encode(data.toJson());
 abstract class Pokemon with _$Pokemon {
   const factory Pokemon({
     List<Ability>? abilities,
-    int? baseExperience,
+    @JsonKey(name: "base_experience") int? baseExperience,
     List<Species>? forms,
-    List<GameIndex>? gameIndices,
+    @JsonKey(name: "game_indices") List<GameIndex>? gameIndices,
     int? height,
-    List<dynamic>? heldItems,
+    @JsonKey(name: "held_items") List<dynamic>? heldItems,
     int? id,
-    bool? isDefault,
-    String? locationAreaEncounters,
+    @JsonKey(name: "is_default") bool? isDefault,
+    @JsonKey(name: "location_area_encounters") String? locationAreaEncounters,
     List<Move>? moves,
     String? name,
     int? order,
-    List<dynamic>? pastTypes,
+    @JsonKey(name: "past_types") List<dynamic>? pastTypes,
     Species? species,
     Sprites? sprites,
     List<Stat>? stats,
@@ -39,7 +41,7 @@ abstract class Pokemon with _$Pokemon {
 abstract class Ability with _$Ability {
   const factory Ability({
     Species? ability,
-    bool? isHidden,
+    @JsonKey(name: "is_hidden") bool? isHidden,
     int? slot,
   }) = _Ability;
 
@@ -61,7 +63,7 @@ abstract class Species with _$Species {
 @freezed
 abstract class GameIndex with _$GameIndex {
   const factory GameIndex({
-    int? gameIndex,
+    @JsonKey(name: "game_ndex") int? gameIndex,
     Species? version,
   }) = _GameIndex;
 
@@ -73,7 +75,8 @@ abstract class GameIndex with _$GameIndex {
 abstract class Move with _$Move {
   const factory Move({
     Species? move,
-    List<VersionGroupDetail>? versionGroupDetails,
+    @JsonKey(name: "version_group_details")
+        List<VersionGroupDetail>? versionGroupDetails,
   }) = _Move;
 
   factory Move.fromJson(Map<String, dynamic> json) => _$MoveFromJson(json);
@@ -82,9 +85,9 @@ abstract class Move with _$Move {
 @freezed
 abstract class VersionGroupDetail with _$VersionGroupDetail {
   const factory VersionGroupDetail({
-    int? levelLearnedAt,
-    Species? moveLearnMethod,
-    Species? versionGroup,
+    @JsonKey(name: "level_learned_at") int? levelLearnedAt,
+    @JsonKey(name: "move_learn_method") Species? moveLearnMethod,
+    @JsonKey(name: "version_group") Species? versionGroup,
   }) = _VersionGroupDetail;
 
   factory VersionGroupDetail.fromJson(Map<String, dynamic> json) =>
@@ -94,7 +97,7 @@ abstract class VersionGroupDetail with _$VersionGroupDetail {
 @freezed
 abstract class GenerationV with _$GenerationV {
   const factory GenerationV({
-    Sprites? blackWhite,
+    @JsonKey(name: "black_white") Sprites? blackWhite,
   }) = _GenerationV;
 
   factory GenerationV.fromJson(Map<String, dynamic> json) =>
@@ -104,8 +107,8 @@ abstract class GenerationV with _$GenerationV {
 @freezed
 abstract class GenerationIv with _$GenerationIv {
   const factory GenerationIv({
-    Sprites? diamondPearl,
-    Sprites? heartgoldSoulsilver,
+    @JsonKey(name: "diamond_pearl") Sprites? diamondPearl,
+    @JsonKey(name: "heartgold_soulsilver") Sprites? heartgoldSoulsilver,
     Sprites? platinum,
   }) = _GenerationIv;
 
@@ -116,14 +119,14 @@ abstract class GenerationIv with _$GenerationIv {
 @freezed
 abstract class Versions with _$Versions {
   const factory Versions({
-    GenerationI? generationI,
-    GenerationIi? generationIi,
-    GenerationIii? generationIii,
-    GenerationIv? generationIv,
-    GenerationV? generationV,
-    Map<String, Home>? generationVi,
-    GenerationVii? generationVii,
-    GenerationViii? generationViii,
+    @JsonKey(name: "generation_i") GenerationI? generationI,
+    @JsonKey(name: "generation_ii") GenerationIi? generationIi,
+    @JsonKey(name: "generation_iii") GenerationIii? generationIii,
+    @JsonKey(name: "generation_iv") GenerationIv? generationIv,
+    @JsonKey(name: "generation_v") GenerationV? generationV,
+    @JsonKey(name: "generation_vi") Map<String, Home>? generationVi,
+    @JsonKey(name: "generation_vii") GenerationVii? generationVii,
+    @JsonKey(name: "generation_viii") GenerationViii? generationViii,
   }) = _Versions;
 
   factory Versions.fromJson(Map<String, dynamic> json) =>
@@ -133,14 +136,14 @@ abstract class Versions with _$Versions {
 @freezed
 abstract class Sprites with _$Sprites {
   const factory Sprites({
-    String? backDefault,
-    dynamic? backFemale,
-    String? backShiny,
-    dynamic? backShinyFemale,
-    String? frontDefault,
-    dynamic? frontFemale,
-    String? frontShiny,
-    dynamic? frontShinyFemale,
+    @JsonKey(name: "back_default") String? backDefault,
+    @JsonKey(name: "back_female") dynamic? backFemale,
+    @JsonKey(name: "back_shiny") String? backShiny,
+    @JsonKey(name: "back_shiny_female") dynamic? backShinyFemale,
+    @JsonKey(name: "front_default") String? frontDefault,
+    @JsonKey(name: "front_female") dynamic? frontFemale,
+    @JsonKey(name: "front_shiny") String? frontShiny,
+    @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale,
     Other? other,
     Versions? versions,
     Sprites? animated,
@@ -153,7 +156,7 @@ abstract class Sprites with _$Sprites {
 @freezed
 abstract class GenerationI with _$GenerationI {
   const factory GenerationI({
-    RedBlue? redBlue,
+    @JsonKey(name: "red_blue") RedBlue? redBlue,
     RedBlue? yellow,
   }) = _GenerationI;
 
@@ -164,12 +167,12 @@ abstract class GenerationI with _$GenerationI {
 @freezed
 abstract class RedBlue with _$RedBlue {
   const factory RedBlue({
-    String? backDefault,
-    String? backGray,
-    String? backTransparent,
-    String? frontDefault,
-    String? frontGray,
-    String? frontTransparent,
+    @JsonKey(name: "back_default") String? backDefault,
+    @JsonKey(name: "back_gray") String? backGray,
+    @JsonKey(name: "back_transparent") String? backTransparent,
+    @JsonKey(name: "front_default") String? frontDefault,
+    @JsonKey(name: "front_gray") String? frontGray,
+    @JsonKey(name: "front_transparent") String? frontTransparent,
   }) = _RedBlue;
 
   factory RedBlue.fromJson(Map<String, dynamic> json) =>
@@ -191,14 +194,14 @@ abstract class GenerationIi with _$GenerationIi {
 @freezed
 abstract class Crystal with _$Crystal {
   const factory Crystal({
-    String? backDefault,
-    String? backShiny,
-    String? backShinyTransparent,
-    String? backTransparent,
-    String? frontDefault,
-    String? frontShiny,
-    String? frontShinyTransparent,
-    String? frontTransparent,
+    @JsonKey(name: "back_default") String? backDefault,
+    @JsonKey(name: "back_shiny") String? backShiny,
+    @JsonKey(name: "back_shiny_transparent") String? backShinyTransparent,
+    @JsonKey(name: "back_transparent") String? backTransparent,
+    @JsonKey(name: "front_default") String? frontDefault,
+    @JsonKey(name: "front_shiny") String? frontShiny,
+    @JsonKey(name: "front_shiny_transparent") String? frontShinyTransparent,
+    @JsonKey(name: "front_transparent") String? frontTransparent,
   }) = _Crystal;
 
   factory Crystal.fromJson(Map<String, dynamic> json) =>
@@ -208,11 +211,11 @@ abstract class Crystal with _$Crystal {
 @freezed
 abstract class Gold with _$Gold {
   const factory Gold({
-    String? backDefault,
-    String? backShiny,
-    String? frontDefault,
-    String? frontShiny,
-    String? frontTransparent,
+    @JsonKey(name: "back_default") String? backDefault,
+    @JsonKey(name: "back_shiny") String? backShiny,
+    @JsonKey(name: "front_default") String? frontDefault,
+    @JsonKey(name: "front_shiny") String? frontShiny,
+    @JsonKey(name: "front_transparent") String? frontTransparent,
   }) = _Gold;
 
   factory Gold.fromJson(Map<String, dynamic> json) => _$GoldFromJson(json);
@@ -222,8 +225,8 @@ abstract class Gold with _$Gold {
 abstract class GenerationIii with _$GenerationIii {
   const factory GenerationIii({
     Emerald? emerald,
-    Gold? fireredLeafgreen,
-    Gold? rubySapphire,
+    @JsonKey(name: "firered_leafgreen") Gold? fireredLeafgreen,
+    @JsonKey(name: "ruby_sapphire") Gold? rubySapphire,
   }) = _GenerationIii;
 
   factory GenerationIii.fromJson(Map<String, dynamic> json) =>
@@ -233,8 +236,8 @@ abstract class GenerationIii with _$GenerationIii {
 @freezed
 abstract class Emerald with _$Emerald {
   const factory Emerald({
-    String? frontDefault,
-    String? frontShiny,
+    @JsonKey(name: "front_default") String? frontDefault,
+    @JsonKey(name: "front_shiny") String? frontShiny,
   }) = _Emerald;
 
   factory Emerald.fromJson(Map<String, dynamic> json) =>
@@ -244,10 +247,10 @@ abstract class Emerald with _$Emerald {
 @freezed
 abstract class Home with _$Home {
   const factory Home({
-    String? frontDefault,
-    dynamic? frontFemale,
-    String? frontShiny,
-    dynamic? frontShinyFemale,
+    @JsonKey(name: "front_default") String? frontDefault,
+    @JsonKey(name: "front_female") dynamic? frontFemale,
+    @JsonKey(name: "front_shiny") String? frontShiny,
+    @JsonKey(name: "front_shiny_female") dynamic? frontShinyFemale,
   }) = _Home;
 
   factory Home.fromJson(Map<String, dynamic> json) => _$HomeFromJson(json);
@@ -257,7 +260,7 @@ abstract class Home with _$Home {
 abstract class GenerationVii with _$GenerationVii {
   const factory GenerationVii({
     DreamWorld? icons,
-    Home? ultraSunUltraMoon,
+    @JsonKey(name: "ultra_sun_ultra_moon") Home? ultraSunUltraMoon,
   }) = _GenerationVii;
 
   factory GenerationVii.fromJson(Map<String, dynamic> json) =>
@@ -267,8 +270,8 @@ abstract class GenerationVii with _$GenerationVii {
 @freezed
 abstract class DreamWorld with _$DreamWorld {
   const factory DreamWorld({
-    String? frontDefault,
-    dynamic? frontFemale,
+    @JsonKey(name: "front_default") String? frontDefault,
+    @JsonKey(name: "front_female") dynamic? frontFemale,
   }) = _DreamWorld;
 
   factory DreamWorld.fromJson(Map<String, dynamic> json) =>
@@ -288,9 +291,9 @@ abstract class GenerationViii with _$GenerationViii {
 @freezed
 abstract class Other with _$Other {
   const factory Other({
-    DreamWorld? dreamWorld,
+    @JsonKey(name: "dream_world") DreamWorld? dreamWorld,
     Home? home,
-    OfficialArtwork? officialArtwork,
+    @JsonKey(name: "official_artwork") OfficialArtwork? officialArtwork,
   }) = _Other;
 
   factory Other.fromJson(Map<String, dynamic> json) => _$OtherFromJson(json);
@@ -299,7 +302,7 @@ abstract class Other with _$Other {
 @freezed
 abstract class OfficialArtwork with _$OfficialArtwork {
   const factory OfficialArtwork({
-    String? frontDefault,
+    @JsonKey(name: "front_default") String? frontDefault,
   }) = _OfficialArtwork;
 
   factory OfficialArtwork.fromJson(Map<String, dynamic> json) =>
@@ -309,7 +312,7 @@ abstract class OfficialArtwork with _$OfficialArtwork {
 @freezed
 abstract class Stat with _$Stat {
   const factory Stat({
-    int? baseStat,
+    @JsonKey(name: "base_stat") int? baseStat,
     int? effort,
     Species? stat,
   }) = _Stat;
