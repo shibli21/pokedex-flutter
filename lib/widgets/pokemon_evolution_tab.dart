@@ -1,9 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/models/pokemon_evolution_chain.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
-import 'package:pokedex_flutter/utils/dio_client.dart';
+
 import 'package:pokedex_flutter/utils/evolution_data_format.dart';
+import 'package:pokedex_flutter/utils/pokemon_client.dart';
 import 'package:pokedex_flutter/widgets/evolution_pokemon_card.dart';
 
 class PokemonEvolutionTab extends StatelessWidget {
@@ -18,7 +20,7 @@ class PokemonEvolutionTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DioClient _client = DioClient();
+    final PokemonClient _client = PokemonClient(Dio());
 
     return SingleChildScrollView(
       child: Column(
@@ -30,7 +32,7 @@ class PokemonEvolutionTab extends StatelessWidget {
           ),
           FutureBuilder<PokemonEvolutionChain?>(
             future: _client.getPokemonEvolutionChainById(
-              id: '${pokemonSpecies.evolutionChain!.url!.split('/')[pokemonSpecies.evolutionChain!.url!.split('/').length - 2]}',
+              getIdFromUrl(pokemonSpecies.evolutionChain.url!),
             ),
             builder: (context, snapshot) {
               if (snapshot.hasData) {

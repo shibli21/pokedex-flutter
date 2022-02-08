@@ -26,7 +26,7 @@ class PokemonStatsTab extends StatelessWidget {
           ),
         ),
         Column(
-          children: widget.pokemon.stats!.map((e) {
+          children: widget.pokemon.stats.map((e) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -34,7 +34,7 @@ class PokemonStatsTab extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${e.stat!.name?.toUpperCase()}",
+                      e.stat!.name.toUpperCase(),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),

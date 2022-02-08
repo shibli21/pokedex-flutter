@@ -1,15 +1,7 @@
-import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'dart:convert';
 
 part 'pokemon_evolution_chain.freezed.dart';
 part 'pokemon_evolution_chain.g.dart';
-
-PokemonEvolutionChain pokemonEvolutionChainFromJson(String str) =>
-    PokemonEvolutionChain.fromJson(json.decode(str));
-
-String pokemonEvolutionChainToJson(PokemonEvolutionChain data) =>
-    json.encode(data.toJson());
 
 @freezed
 abstract class PokemonEvolutionChain with _$PokemonEvolutionChain {

@@ -1,12 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'dart:convert';
 
 part 'pokemons.freezed.dart';
 part 'pokemons.g.dart';
-
-Pokemons pokemonsFromJson(String str) => Pokemons.fromJson(json.decode(str));
-
-String pokemonsToJson(Pokemons data) => json.encode(data.toJson());
 
 @freezed
 abstract class Pokemons with _$Pokemons {

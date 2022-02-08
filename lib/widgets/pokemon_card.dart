@@ -1,10 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
-import 'package:pokedex_flutter/utils/dio_client.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pokedex_flutter/utils/pokemon_client.dart';
 import 'package:pokedex_flutter/widgets/pokemon_type_chips.dart';
 
 class PokemonCard extends StatelessWidget {
@@ -16,10 +17,10 @@ class PokemonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pokemonId = url.split('/')[url.split('/').length - 2];
-    final DioClient _client = DioClient();
+    final PokemonClient _client = PokemonClient(Dio());
 
     return FutureBuilder<Pokemon?>(
-      future: _client.getPokemonById(id: pokemonId),
+      future: _client.getPokemonById(pokemonId),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           Pokemon? pokemon = snapshot.data;
@@ -39,7 +40,7 @@ class PokemonCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5.0),
                 ),
-                color: const AppColors().get(pokemonData.types![0].type!.name!),
+                color: const AppColors().get(pokemonData.types[0].type!.name),
                 elevation: 0,
                 child: Stack(
                   children: [
@@ -47,9 +48,9 @@ class PokemonCard extends StatelessWidget {
                       height: 230,
                       left: 100,
                       child: SvgPicture.asset(
-                        'assets/poke-types/${pokemonData.types![0].type!.name!.toLowerCase()}.svg',
+                        'assets/poke-types/${pokemonData.types[0].type!.name.toLowerCase()}.svg',
                         color: darken(const AppColors()
-                            .get(pokemonData.types![0].type!.name!)),
+                            .get(pokemonData.types[0].type!.name)),
                       ),
                     ),
                     Row(
@@ -79,7 +80,7 @@ class PokemonCard extends StatelessWidget {
                                 ),
                               ),
                               PokemonTypeChips(
-                                types: pokemonData.types!,
+                                types: pokemonData.types,
                               ),
                             ],
                           ),

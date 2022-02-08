@@ -17,20 +17,20 @@ class PokemonTypeChips extends StatelessWidget {
           .map(
             (Type type) => Chip(
               label: Text(
-                type.type!.name!,
+                type.type!.name,
                 style: const TextStyle(
                   color: Colors.white,
                 ),
               ),
               avatar: SvgPicture.asset(
-                'assets/poke-types/${type.type!.name!.toLowerCase()}.svg',
+                'assets/poke-types/${type.type!.name.toLowerCase()}.svg',
                 height: 16,
                 width: 16,
               ),
               visualDensity: VisualDensity.compact,
               backgroundColor: darken(
                 const AppColors().get(
-                  type.type!.name!,
+                  type.type!.name,
                 ),
               ),
               labelPadding: const EdgeInsets.only(

@@ -1,7 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_flutter/models/pokemons.dart';
-import 'package:pokedex_flutter/utils/dio_client.dart';
+import 'package:pokedex_flutter/utils/pokemon_client.dart';
 import 'package:pokedex_flutter/widgets/pokemon_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final DioClient _client = DioClient();
+  final PokemonClient _client = PokemonClient(Dio());
 
   @override
   Widget build(BuildContext context) {

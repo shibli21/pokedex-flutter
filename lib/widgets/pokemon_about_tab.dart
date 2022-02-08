@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
@@ -5,7 +6,8 @@ import 'package:pokedex_flutter/models/pokemon_type.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
-import 'package:pokedex_flutter/utils/dio_client.dart';
+import 'package:pokedex_flutter/utils/evolution_data_format.dart';
+import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
 class PokemonAboutTab extends StatelessWidget {
   const PokemonAboutTab({
@@ -21,7 +23,7 @@ class PokemonAboutTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DioClient _client = DioClient();
+    final PokemonClient _client = PokemonClient(Dio());
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +63,9 @@ class PokemonAboutTab extends StatelessWidget {
               ),
             ),
             FutureBuilder<PokemonType?>(
-              future: _client.getPokemonTypeById(id: '${widget.pokemon.id}'),
+              future: _client.getPokemonTypeById(
+                getIdFromUrl('${widget.pokemon.types[0].type?.url}'),
+              ),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   PokemonType? pokemonType = snapshot.data;
@@ -105,7 +109,7 @@ class PokemonAboutTab extends StatelessWidget {
               ),
             ),
             Column(
-              children: widget.pokemon.abilities!
+              children: widget.pokemon.abilities
                   .map(
                     (ability) => Text(
                       '${ability.ability!.name}',

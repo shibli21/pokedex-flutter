@@ -1,8 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
-import 'package:pokedex_flutter/utils/dio_client.dart';
+import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
 class EvolutionPokemonCard extends StatelessWidget {
   String name;
@@ -12,12 +13,12 @@ class EvolutionPokemonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DioClient _client = DioClient();
+    final PokemonClient _client = PokemonClient(Dio());
 
     return Padding(
       padding: const EdgeInsets.all(10),
       child: FutureBuilder<Pokemon?>(
-        future: _client.getPokemonById(id: pokemonId),
+        future: _client.getPokemonById(pokemonId),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             Pokemon? pokemon = snapshot.data;
@@ -39,7 +40,7 @@ class EvolutionPokemonCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(1000),
                       color: const AppColors()
-                          .get(pokemonData.types![0].type!.name!),
+                          .get(pokemonData.types[0].type!.name),
                       boxShadow: const [
                         BoxShadow(
                           color: Colors.black12,

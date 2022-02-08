@@ -1,8 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
-import 'package:pokedex_flutter/utils/dio_client.dart';
+import 'package:pokedex_flutter/utils/pokemon_client.dart';
 import 'package:pokedex_flutter/widgets/pokemon_about_tab.dart';
 import 'package:pokedex_flutter/widgets/pokemon_evolution_tab.dart';
 import 'package:pokedex_flutter/widgets/pokemon_stats_tab.dart';
@@ -26,7 +27,7 @@ class _PokemonTabBarState extends State<PokemonTabBar>
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
-    final DioClient _client = DioClient();
+    final PokemonClient _client = PokemonClient(Dio());
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -69,7 +70,8 @@ class _PokemonTabBarState extends State<PokemonTabBar>
             padding: const EdgeInsets.only(top: 8.0),
             child: FutureBuilder<PokemonSpecies?>(
               future: _client.getPokemonSpeciesById(
-                  id: '${widget.widget.pokemon.id}'),
+                '${widget.widget.pokemon.id}',
+              ),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   PokemonSpecies? pokemonSpecies = snapshot.data;

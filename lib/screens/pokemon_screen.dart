@@ -17,7 +17,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    var bg = const AppColors().get(widget.pokemon.types![0].type!.name!);
+    var bg = const AppColors().get(widget.pokemon.types[0].type!.name);
 
     return Scaffold(
       appBar: AppBar(
@@ -89,7 +89,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
         child: SizedBox(
           height: 220,
           child: Hero(
-            tag: "${widget.pokemon.id!}",
+            tag: "${widget.pokemon.id}",
             child: Image.network(
               "https://cdn.traction.one/pokedex/pokemon/${widget.pokemon.id}.png",
               fit: BoxFit.cover,
@@ -106,7 +106,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Text(
-          '#00' + widget.pokemon.id!.toString(),
+          '#00' + widget.pokemon.id.toString(),
           style: const TextStyle(
             fontSize: 20,
             height: 1,
@@ -115,7 +115,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
           ),
         ),
         Text(
-          "${widget.pokemon.name![0].toUpperCase()}${widget.pokemon.name!.substring(1)}",
+          "${widget.pokemon.name[0].toUpperCase()}${widget.pokemon.name.substring(1)}",
           style: const TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
           ),
         ),
         PokemonTypeChips(
-          types: widget.pokemon.types!,
+          types: widget.pokemon.types,
         ),
       ],
     );
