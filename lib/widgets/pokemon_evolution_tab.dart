@@ -29,7 +29,8 @@ class PokemonEvolutionTab extends StatelessWidget {
           ),
           BlocBuilder<PokemonEvolutionBloc, PokemonEvolutionState>(
             bloc: PokemonEvolutionBloc()
-              ..add(PokemonEvolutionEvent.started("${pokemon.id}")),
+              ..add(PokemonEvolutionEvent.started(
+                  "${getIdFromUrl(pokemonSpecies.evolutionChain.url!)}")),
             builder: (context, state) {
               if (state is PokemonEvolutionLoadedState) {
                 PokemonEvolutionChain evolutionChain =
