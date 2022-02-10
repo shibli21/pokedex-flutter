@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
@@ -91,8 +92,9 @@ class _PokemonScreenState extends State<PokemonScreen> {
           height: 220,
           child: Hero(
             tag: "${widget.pokemon.id}",
-            child: Image.network(
-              "https://cdn.traction.one/pokedex/pokemon/${widget.pokemon.id}.png",
+            child: CachedNetworkImage(
+              imageUrl:
+                  "https://cdn.traction.one/pokedex/pokemon/${widget.pokemon.id}.png",
               fit: BoxFit.cover,
             ),
           ),
