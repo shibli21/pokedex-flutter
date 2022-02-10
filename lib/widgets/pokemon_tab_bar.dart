@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex_flutter/bloc/pokemon_evolution_bloc.dart';
+import 'package:pokedex_flutter/bloc/pokemon_species_bloc.dart';
+import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
-import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/utils/pokemon_client.dart';
 import 'package:pokedex_flutter/widgets/pokemon_about_tab.dart';
@@ -9,14 +12,14 @@ import 'package:pokedex_flutter/widgets/pokemon_evolution_tab.dart';
 import 'package:pokedex_flutter/widgets/pokemon_stats_tab.dart';
 
 class PokemonTabBar extends StatefulWidget {
+  final bg;
+  final Pokemon pokemon;
+
   const PokemonTabBar({
     Key? key,
     required this.bg,
-    required this.widget,
+    required this.pokemon,
   }) : super(key: key);
-
-  final bg;
-  final PokemonScreen widget;
 
   @override
   State<PokemonTabBar> createState() => _PokemonTabBarState();
@@ -68,35 +71,42 @@ class _PokemonTabBarState extends State<PokemonTabBar>
           Container(
             height: 800,
             padding: const EdgeInsets.only(top: 8.0),
-            child: FutureBuilder<PokemonSpecies?>(
-              future: _client.getPokemonSpeciesById(
-                '${widget.widget.pokemon.id}',
-              ),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  PokemonSpecies? pokemonSpecies = snapshot.data;
-
-                  if (pokemonSpecies != null) {
-                    PokemonSpecies pokemonsData = pokemonSpecies;
-
-                    return TabBarView(
-                      controller: _tabController,
-                      children: <Widget>[
-                        PokemonAboutTab(
-                          bg: widget.bg,
-                          widget: widget.widget,
-                          pokemonSpecies: pokemonSpecies,
+            child: BlocBuilder<PokemonSpeciesBloc, PokemonSpeciesState>(
+              bloc: PokemonSpeciesBloc()
+                ..add(PokemonSpeciesEvent.started('${widget.pokemon.id}')),
+              builder: (context, state) {
+                if (state is PokemonSpeciesLoadingState) {
+                  return Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(40.0),
+                        child: CircularProgressIndicator(
+                          color: widget.bg,
                         ),
-                        PokemonStatsTab(bg: widget.bg, widget: widget.widget),
-                        PokemonEvolutionTab(
-                          widget: widget.widget,
-                          pokemonSpecies: pokemonSpecies,
-                        )
-                      ],
-                    );
-                  }
+                      ),
+                    ],
+                  );
                 }
-                return const Center(child: CircularProgressIndicator());
+                if (state is PokemonSpeciesLoadedState) {
+                  PokemonSpecies? pokemonSpecies = state.pokemonSpecies;
+
+                  return TabBarView(
+                    controller: _tabController,
+                    children: <Widget>[
+                      PokemonAboutTab(
+                        bg: widget.bg,
+                        pokemon: widget.pokemon,
+                        pokemonSpecies: pokemonSpecies,
+                      ),
+                      PokemonStatsTab(bg: widget.bg, pokemon: widget.pokemon),
+                      PokemonEvolutionTab(
+                        pokemon: widget.pokemon,
+                        pokemonSpecies: pokemonSpecies,
+                      )
+                    ],
+                  );
+                }
+                return const Text('Error');
               },
             ),
           )

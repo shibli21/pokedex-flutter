@@ -1,30 +1,27 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pokedex_flutter/bloc/pokemon_type_bloc.dart';
+import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
 import 'package:pokedex_flutter/models/pokemon_type.dart';
-import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
-import 'package:pokedex_flutter/utils/evolution_data_format.dart';
-import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
 class PokemonAboutTab extends StatelessWidget {
   const PokemonAboutTab({
     Key? key,
     required this.bg,
-    required this.widget,
+    required this.pokemon,
     required this.pokemonSpecies,
   }) : super(key: key);
 
   final bg;
-  final PokemonScreen widget;
+  final Pokemon pokemon;
   final PokemonSpecies pokemonSpecies;
 
   @override
   Widget build(BuildContext context) {
-    final PokemonClient _client = PokemonClient(Dio());
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -42,11 +39,11 @@ class PokemonAboutTab extends StatelessWidget {
         ),
         PokedexDataField(
           "Height",
-          '${widget.pokemon.height}',
+          '${pokemon.height}',
         ),
         PokedexDataField(
           "Weight",
-          '${widget.pokemon.weight}',
+          '${pokemon.weight}',
         ),
         PokedexDataField(
           "Capture Rate",
@@ -62,36 +59,33 @@ class PokemonAboutTab extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            FutureBuilder<PokemonType?>(
-              future: _client.getPokemonTypeById(
-                getIdFromUrl('${widget.pokemon.types[0].type?.url}'),
-              ),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  PokemonType? pokemonType = snapshot.data;
-                  if (pokemonType != null) {
-                    return Wrap(
-                      spacing: 4,
-                      children: pokemonType.damageRelations!.doubleDamageFrom!
-                          .map(
-                            (e) => Tooltip(
-                              message: e.name,
-                              child: Container(
-                                padding: const EdgeInsets.all(4),
-                                color: darken(const AppColors().get(e.name!)),
-                                child: SvgPicture.asset(
-                                  'assets/poke-types/${e.name!.toLowerCase()}.svg',
-                                  color: Colors.white,
-                                  // color: darken(const AppColors().get(e.name!)),
-                                  height: 20,
-                                  width: 20,
-                                ),
+            BlocBuilder<PokemonTypeBloc, PokemonTypeState>(
+              bloc: PokemonTypeBloc()
+                ..add(PokemonTypeEvent.started('${pokemon.id}')),
+              builder: (context, state) {
+                if (state is PokemonTypeLoadedState) {
+                  PokemonType pokemonType = state.pokemonType;
+                  return Wrap(
+                    spacing: 4,
+                    children: pokemonType.damageRelations!.doubleDamageFrom!
+                        .map(
+                          (e) => Tooltip(
+                            message: e.name,
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              color: darken(const AppColors().get(e.name!)),
+                              child: SvgPicture.asset(
+                                'assets/poke-types/${e.name!.toLowerCase()}.svg',
+                                color: Colors.white,
+                                // color: darken(const AppColors().get(e.name!)),
+                                height: 20,
+                                width: 20,
                               ),
                             ),
-                          )
-                          .toList(),
-                    );
-                  }
+                          ),
+                        )
+                        .toList(),
+                  );
                 }
                 return const Text("");
               },
@@ -109,7 +103,7 @@ class PokemonAboutTab extends StatelessWidget {
               ),
             ),
             Column(
-              children: widget.pokemon.abilities
+              children: pokemon.abilities
                   .map(
                     (ability) => Text(
                       '${ability.ability!.name}',
@@ -137,7 +131,7 @@ class PokemonAboutTab extends StatelessWidget {
         ),
         PokedexDataField(
           "Base Experience",
-          '${widget.pokemon.baseExperience}',
+          '${pokemon.baseExperience}',
         ),
         PokedexDataField(
           "Growth Rate",

@@ -13,7 +13,7 @@ abstract class PokemonClient {
   factory PokemonClient(Dio dio, {String baseUrl}) = _PokemonClient;
   @GET("pokemon")
   Future<Pokemons> getPokemons(
-      {@Query('offset') int offset = 0, @Query('limit') int limit = 15});
+      {@Query('offset') int offset = 0, @Query('limit') int limit = 5});
 
   @GET("pokemon/{id}")
   Future<Pokemon> getPokemonById(@Path("id") dynamic id);

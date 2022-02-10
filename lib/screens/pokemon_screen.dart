@@ -18,6 +18,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     var bg = const AppColors().get(widget.pokemon.types[0].type!.name);
+    Pokemon pokemon = widget.pokemon;
 
     return Scaffold(
       appBar: AppBar(
@@ -63,7 +64,7 @@ class _PokemonScreenState extends State<PokemonScreen> {
                             color: Colors.white,
                             child: PokemonTabBar(
                               bg: bg,
-                              widget: widget,
+                              pokemon: pokemon,
                             ),
                           ),
                         ),

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:pokedex_flutter/screens/pokemon_screen.dart';
+import 'package:pokedex_flutter/models/pokemon.dart';
 
 class PokemonStatsTab extends StatelessWidget {
   const PokemonStatsTab({
     Key? key,
     required this.bg,
-    required this.widget,
+    required this.pokemon,
   }) : super(key: key);
 
-  final bg;
-  final PokemonScreen widget;
+  final Color bg;
+  final Pokemon pokemon;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class PokemonStatsTab extends StatelessWidget {
           ),
         ),
         Column(
-          children: widget.pokemon.stats.map((e) {
+          children: pokemon.stats.map((e) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
