@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex_flutter/bloc/pokemons_bloc.dart';
 import 'package:pokedex_flutter/bloc_observer.dart';
 import 'package:pokedex_flutter/screens/home_page.dart';
 import 'package:pokedex_flutter/theme/app_theme.dart';
@@ -20,10 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pokedex',
       theme: AppTheme.basic,
-      home: BlocProvider(
-        create: (context) => PokemonsBloc()..add(const PokemonsEvent.started()),
-        child: const HomePage(),
-      ),
+      home: HomePage(),
     );
   }
 }
