@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:pokedex_flutter/controllers/pokemons_coltroller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
+import 'package:pokedex_flutter/screens/favorite_screen.dart';
+import 'package:pokedex_flutter/theme/colors.dart';
+import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/widgets/pokemon_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,19 +18,38 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: IconButton(
+              icon: Icon(
+                Icons.favorite,
+                color: darken(const AppColors().fighting),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FavPokemonScreen(),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
         title: Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 8,
           children: [
-            const Icon(
+            Icon(
               Icons.catching_pokemon_outlined,
-              color: Colors.redAccent,
-              size: 40,
+              color: darken(const AppColors().fighting),
+              size: 30,
             ),
             Text(
               "Pokédex",
               style: GoogleFonts.righteous(
-                textStyle: Theme.of(context).textTheme.headline4,
+                textStyle: Theme.of(context).textTheme.headline5,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -50,11 +72,7 @@ class HomePage extends StatelessWidget {
                   Pokemon pokemon = _pokemonsColtorller.pokemonList[index];
                   return Padding(
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                    child: PokemonCard(
-                      pokemon.name,
-                      pokemon.id,
-                      pokemon,
-                    ),
+                    child: PokemonCard(pokemon),
                   );
                 },
               ),

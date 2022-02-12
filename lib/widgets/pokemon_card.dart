@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:pokedex_flutter/controllers/favorite_pokemon_controller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
@@ -8,15 +10,16 @@ import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/widgets/pokemon_type_chips.dart';
 
 class PokemonCard extends StatelessWidget {
-  String name;
-  int url;
   Pokemon pokemon;
 
-  PokemonCard(this.name, this.url, this.pokemon, {Key? key}) : super(key: key);
+  PokemonCard(this.pokemon, {Key? key}) : super(key: key);
+
+  final FavoritePokemonsColtorller _favPokemonsColtorller =
+      Get.put(FavoritePokemonsColtorller());
 
   @override
   Widget build(BuildContext context) {
-    final pokemonId = url.toString();
+    final pokemonId = pokemon.id.toString();
 
     return GestureDetector(
       onTap: () {
@@ -63,7 +66,7 @@ class PokemonCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "${name[0].toUpperCase()}${name.substring(1)}",
+                        "${pokemon.name[0].toUpperCase()}${pokemon.name.substring(1)}",
                         style: const TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
@@ -93,14 +96,26 @@ class PokemonCard extends StatelessWidget {
                 ),
               ],
             ),
-            const Positioned(
-              top: 20,
-              right: 20,
-              child: Icon(
-                Icons.favorite_border,
-                color: Colors.white,
-              ),
-            ),
+            Obx(() {
+              return Positioned(
+                top: 20,
+                right: 20,
+                child: GestureDetector(
+                  onTap: () {
+                    _favPokemonsColtorller.toggleFav(pokemon);
+                  },
+                  child: _favPokemonsColtorller.favPokemonList.contains(pokemon)
+                      ? Icon(
+                          Icons.favorite,
+                          color: darken(const AppColors().fighting),
+                        )
+                      : const Icon(
+                          Icons.favorite_border,
+                          color: Colors.white,
+                        ),
+                ),
+              );
+            })
           ],
         ),
       ),
