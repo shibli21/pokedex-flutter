@@ -6,7 +6,7 @@ import 'package:pokedex_flutter/utils/pokemon_client.dart';
 class PokemonTypeColtorller extends GetxController {
   PokemonTypeColtorller(this.id);
 
-  final int id;
+  final String id;
 
   final pokemonType = Rx<PokemonType?>(null);
   RxBool isLoading = false.obs;
@@ -19,7 +19,7 @@ class PokemonTypeColtorller extends GetxController {
 
   final PokemonClient _client = PokemonClient(Dio());
 
-  void fetchPokemonType(int id) async {
+  void fetchPokemonType(String id) async {
     try {
       isLoading(true);
       pokemonType.value = await _client.getPokemonTypeById(id);

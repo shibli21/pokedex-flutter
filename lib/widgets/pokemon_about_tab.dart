@@ -7,6 +7,7 @@ import 'package:pokedex_flutter/models/pokemon_species.dart';
 import 'package:pokedex_flutter/models/pokemon_type.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
+import 'package:pokedex_flutter/utils/evolution_data_format.dart';
 
 class PokemonAboutTab extends StatelessWidget {
   const PokemonAboutTab({
@@ -23,7 +24,7 @@ class PokemonAboutTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PokemonTypeColtorller _pokemonTypeColtorller = Get.put(
-      PokemonTypeColtorller(pokemon.id),
+      PokemonTypeColtorller(getIdFromUrl(pokemon.types[0].type!.url)),
     );
 
     return Column(
@@ -60,27 +61,37 @@ class PokemonAboutTab extends StatelessWidget {
               } else {
                 PokemonType? pokemonType =
                     _pokemonTypeColtorller.pokemonType.value;
-                return Wrap(
-                  spacing: 4,
-                  children: pokemonType!.damageRelations!.doubleDamageFrom!
-                      .map(
-                        (e) => Tooltip(
-                          message: e.name,
-                          child: Container(
-                            padding: const EdgeInsets.all(4),
-                            color: darken(const AppColors().get(e.name!)),
-                            child: SvgPicture.asset(
-                              'assets/poke-types/${e.name!.toLowerCase()}.svg',
-                              color: Colors.white,
-                              // color: darken(const AppColors().get(e.name!)),
-                              height: 20,
-                              width: 20,
+
+                if (pokemonType != null) {
+                  return Wrap(
+                    spacing: 4,
+                    children: pokemonType.damageRelations!.doubleDamageFrom!
+                        .map(
+                          (e) => Tooltip(
+                            message: e.name,
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              color: darken(const AppColors().get(e.name!)),
+                              child: SvgPicture.asset(
+                                'assets/poke-types/${e.name!.toLowerCase()}.svg',
+                                color: Colors.white,
+                                // color: darken(const AppColors().get(e.name!)),
+                                height: 20,
+                                width: 20,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                      .toList(),
-                );
+                        )
+                        .toList(),
+                  );
+                } else {
+                  return const Text(
+                    "Not Found",
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                    ),
+                  );
+                }
               }
             }),
           ],
