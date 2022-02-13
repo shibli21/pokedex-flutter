@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/screens/pokemon_screen.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
@@ -15,11 +16,9 @@ class EvolutionPokemonCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PokemonScreen(pokemon),
-            ),
+          Get.to(
+            () => PokemonScreen(pokemon),
+            transition: Transition.fadeIn,
           );
         },
         child: Center(

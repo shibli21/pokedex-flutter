@@ -23,11 +23,9 @@ class PokemonCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PokemonScreen(pokemon),
-          ),
+        Get.to(
+          () => PokemonScreen(pokemon),
+          transition: Transition.fadeIn,
         );
       },
       child: Card(

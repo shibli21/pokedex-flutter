@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pokedex_flutter/screens/home_page.dart';
 import 'package:pokedex_flutter/theme/app_theme.dart';
 
 void main() {
-  () => runApp(const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Pokedex',
       theme: AppTheme.basic,
       home: HomePage(),

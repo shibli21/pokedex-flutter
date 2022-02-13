@@ -27,11 +27,9 @@ class HomePage extends StatelessWidget {
                 color: darken(const AppColors().fighting),
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => FavPokemonScreen(),
-                  ),
+                Get.to(
+                  () => FavPokemonScreen(),
+                  transition: Transition.fadeIn,
                 );
               },
             ),

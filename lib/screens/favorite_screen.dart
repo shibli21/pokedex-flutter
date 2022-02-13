@@ -22,7 +22,7 @@ class FavPokemonScreen extends StatelessWidget {
             Icons.arrow_back_ios_new,
             color: darken(const AppColors().fighting),
           ),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Get.back(),
         ),
         titleSpacing: 0,
         title: Text(
