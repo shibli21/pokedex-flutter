@@ -41,7 +41,9 @@ class _PokemonScreenState extends State<PokemonScreen> {
             Icons.arrow_back_ios_new,
             color: Colors.white,
           ),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         actions: [
           Obx(() {

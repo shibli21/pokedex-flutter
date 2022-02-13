@@ -1,12 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex_flutter/bloc/pokemon_evolution_bloc.dart';
-import 'package:pokedex_flutter/bloc/pokemon_species_bloc.dart';
+import 'package:get/get.dart';
+import 'package:pokedex_flutter/controllers/pokemon_species_controller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
-import 'package:pokedex_flutter/utils/pokemon_client.dart';
 import 'package:pokedex_flutter/widgets/pokemon_about_tab.dart';
 import 'package:pokedex_flutter/widgets/pokemon_evolution_tab.dart';
 import 'package:pokedex_flutter/widgets/pokemon_stats_tab.dart';
@@ -30,7 +27,11 @@ class _PokemonTabBarState extends State<PokemonTabBar>
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
-    final PokemonClient _client = PokemonClient(Dio());
+    final PokemonSpeciesColtorller _pokemonSpeciesColtorller = Get.put(
+      PokemonSpeciesColtorller(widget.pokemon.id),
+    );
+
+    _pokemonSpeciesColtorller.fetchPokemonSpecies(widget.pokemon.id);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -71,44 +72,39 @@ class _PokemonTabBarState extends State<PokemonTabBar>
           Container(
             height: 800,
             padding: const EdgeInsets.only(top: 8.0),
-            child: BlocBuilder<PokemonSpeciesBloc, PokemonSpeciesState>(
-              bloc: PokemonSpeciesBloc()
-                ..add(PokemonSpeciesEvent.started('${widget.pokemon.id}')),
-              builder: (context, state) {
-                if (state is PokemonSpeciesLoadingState) {
-                  return Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(40.0),
-                        child: CircularProgressIndicator(
-                          color: widget.bg,
-                        ),
-                      ),
-                    ],
-                  );
-                }
-                if (state is PokemonSpeciesLoadedState) {
-                  PokemonSpecies? pokemonSpecies = state.pokemonSpecies;
+            child: Obx(() {
+              PokemonSpecies pokemonSpecies =
+                  _pokemonSpeciesColtorller.pokemonSpecies.value!;
 
-                  return TabBarView(
-                    controller: _tabController,
-                    children: <Widget>[
-                      PokemonAboutTab(
-                        bg: widget.bg,
-                        pokemon: widget.pokemon,
-                        pokemonSpecies: pokemonSpecies,
+              if (_pokemonSpeciesColtorller.isLoading.isTrue) {
+                return Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(40.0),
+                      child: CircularProgressIndicator(
+                        color: widget.bg,
                       ),
-                      PokemonStatsTab(bg: widget.bg, pokemon: widget.pokemon),
-                      PokemonEvolutionTab(
-                        pokemon: widget.pokemon,
-                        pokemonSpecies: pokemonSpecies,
-                      )
-                    ],
-                  );
-                }
-                return const Text('Error');
-              },
-            ),
+                    ),
+                  ],
+                );
+              } else {
+                return TabBarView(
+                  controller: _tabController,
+                  children: <Widget>[
+                    PokemonAboutTab(
+                      bg: widget.bg,
+                      pokemon: widget.pokemon,
+                      pokemonSpecies: pokemonSpecies,
+                    ),
+                    PokemonStatsTab(bg: widget.bg, pokemon: widget.pokemon),
+                    PokemonEvolutionTab(
+                      pokemon: widget.pokemon,
+                      pokemonSpecies: pokemonSpecies,
+                    )
+                  ],
+                );
+              }
+            }),
           )
         ],
       ),
