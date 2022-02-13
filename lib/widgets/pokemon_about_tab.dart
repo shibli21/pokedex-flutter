@@ -26,8 +26,6 @@ class PokemonAboutTab extends StatelessWidget {
       PokemonTypeColtorller(pokemon.id),
     );
 
-    _pokemonTypeColtorller.fetchPokemonType(pokemon.id);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -57,12 +55,11 @@ class PokemonAboutTab extends StatelessWidget {
               ),
             ),
             Obx(() {
-              PokemonType? pokemonType =
-                  _pokemonTypeColtorller.pokemonType.value;
-
               if (_pokemonTypeColtorller.isLoading.isTrue) {
                 return const SizedBox(height: 20);
               } else {
+                PokemonType? pokemonType =
+                    _pokemonTypeColtorller.pokemonType.value;
                 return Wrap(
                   spacing: 4,
                   children: pokemonType!.damageRelations!.doubleDamageFrom!

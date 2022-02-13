@@ -26,6 +26,7 @@ class PokemonCard extends StatelessWidget {
         Get.to(
           () => PokemonScreen(pokemon),
           transition: Transition.fadeIn,
+          routeName: "${pokemon.id}",
         );
       },
       child: Card(

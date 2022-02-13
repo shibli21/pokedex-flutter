@@ -14,11 +14,12 @@ class EvolutionPokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
-      child: GestureDetector(
+      child: InkWell(
         onTap: () {
           Get.to(
-            () => PokemonScreen(pokemon),
+            PokemonScreen(pokemon),
             transition: Transition.fadeIn,
+            routeName: "${pokemon.id}",
           );
         },
         child: Center(
@@ -36,13 +37,10 @@ class EvolutionPokemonCard extends StatelessWidget {
               ],
             ),
             height: 160,
-            child: Hero(
-              tag: pokemon.id,
-              child: CachedNetworkImage(
-                imageUrl:
-                    "https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png",
-                fit: BoxFit.cover,
-              ),
+            child: CachedNetworkImage(
+              imageUrl:
+                  "https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png",
+              fit: BoxFit.cover,
             ),
           ),
         ),

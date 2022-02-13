@@ -5,9 +5,9 @@ import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
 
 class PokemonTypeChips extends StatelessWidget {
-  List<Type> types;
+  final List<Type> types;
 
-  PokemonTypeChips({required this.types, Key? key}) : super(key: key);
+  const PokemonTypeChips({required this.types, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

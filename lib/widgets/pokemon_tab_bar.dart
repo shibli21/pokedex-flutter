@@ -31,8 +31,6 @@ class _PokemonTabBarState extends State<PokemonTabBar>
       PokemonSpeciesColtorller(widget.pokemon.id),
     );
 
-    _pokemonSpeciesColtorller.fetchPokemonSpecies(widget.pokemon.id);
-
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -73,9 +71,6 @@ class _PokemonTabBarState extends State<PokemonTabBar>
             height: 800,
             padding: const EdgeInsets.only(top: 8.0),
             child: Obx(() {
-              PokemonSpecies pokemonSpecies =
-                  _pokemonSpeciesColtorller.pokemonSpecies.value!;
-
               if (_pokemonSpeciesColtorller.isLoading.isTrue) {
                 return Column(
                   children: <Widget>[
@@ -88,6 +83,8 @@ class _PokemonTabBarState extends State<PokemonTabBar>
                   ],
                 );
               } else {
+                PokemonSpecies pokemonSpecies =
+                    _pokemonSpeciesColtorller.pokemonSpecies.value!;
                 return TabBarView(
                   controller: _tabController,
                   children: <Widget>[
