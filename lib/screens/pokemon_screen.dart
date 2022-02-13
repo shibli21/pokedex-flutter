@@ -1,6 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pokedex_flutter/controllers/favorite_pokemon_controller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
+import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/widgets/pokemon_tab_bar.dart';
 import 'package:pokedex_flutter/widgets/pokemon_type_chips.dart';
 
@@ -14,6 +18,10 @@ class PokemonScreen extends StatefulWidget {
 }
 
 class _PokemonScreenState extends State<PokemonScreen> {
+  final FavoritePokemonsColtorller _favPokemonsColtorller = Get.put(
+    FavoritePokemonsColtorller(),
+  );
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -22,12 +30,42 @@ class _PokemonScreenState extends State<PokemonScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("pokedex"),
+        title: const Text(
+          "Pokedex",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        titleSpacing: 0,
         backgroundColor: bg,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () => Navigator.pop(context),
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
+        actions: [
+          Obx(() {
+            return Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: IconButton(
+                onPressed: () {
+                  _favPokemonsColtorller.toggleFav(pokemon);
+                },
+                icon: _favPokemonsColtorller.favPokemonList.contains(pokemon)
+                    ? Icon(
+                        Icons.favorite,
+                        color: darken(const AppColors().fighting),
+                      )
+                    : const Icon(
+                        Icons.favorite_border,
+                        color: Colors.white,
+                      ),
+              ),
+            );
+          })
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -91,8 +129,9 @@ class _PokemonScreenState extends State<PokemonScreen> {
           height: 220,
           child: Hero(
             tag: "${widget.pokemon.id}",
-            child: Image.network(
-              "https://cdn.traction.one/pokedex/pokemon/${widget.pokemon.id}.png",
+            child: CachedNetworkImage(
+              imageUrl:
+                  "https://cdn.traction.one/pokedex/pokemon/${widget.pokemon.id}.png",
               fit: BoxFit.cover,
             ),
           ),

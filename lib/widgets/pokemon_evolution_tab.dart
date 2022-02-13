@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex_flutter/bloc/pokemon_evolution_bloc.dart';
+import 'package:get/get.dart';
+import 'package:pokedex_flutter/controllers/pokemon_evolution_chain_controller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
-import 'package:pokedex_flutter/models/pokemon_evolution_chain.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
 import 'package:pokedex_flutter/utils/evolution_data_format.dart';
 import 'package:pokedex_flutter/widgets/evolution_pokemon_card.dart';
@@ -19,40 +18,38 @@ class PokemonEvolutionTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Evolution Chain",
-            style: TextStyle(fontSize: 20),
-          ),
-          BlocBuilder<PokemonEvolutionBloc, PokemonEvolutionState>(
-            bloc: PokemonEvolutionBloc()
-              ..add(PokemonEvolutionEvent.started("${pokemon.id}")),
-            builder: (context, state) {
-              if (state is PokemonEvolutionLoadedState) {
-                PokemonEvolutionChain evolutionChain =
-                    state.pokemonEvolutionChain;
-                var evc = getEvo(evolutionChain);
+    String evoId = getIdFromUrl(pokemonSpecies.evolutionChain.url!);
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: evc
-                      .map(
-                        (e) => EvolutionPokemonCard(
-                          e['name'],
-                          e['id'],
-                        ),
-                      )
-                      .toList(),
-                );
-              }
-              return const Text("");
-            },
-          ),
-        ],
-      ),
+    final PokemonEvolutionChainColtorller _pokemonEvoPokemonEvolutionChain =
+        Get.put(PokemonEvolutionChainColtorller(evoId));
+
+    _pokemonEvoPokemonEvolutionChain.fetchPokemonEvolutionChain(evoId);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Obx(() {
+          List<Pokemon> evolutionChainPokemons =
+              _pokemonEvoPokemonEvolutionChain.evolutionChainPokemonList;
+
+          if (_pokemonEvoPokemonEvolutionChain.isLoading.isTrue) {
+            return const Padding(
+              padding: EdgeInsets.all(40.0),
+              child: Center(child: CircularProgressIndicator()),
+            );
+          } else {
+            return SizedBox(
+              height: 180,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: evolutionChainPokemons
+                    .map((e) => EvolutionPokemonCard(e))
+                    .toList(),
+              ),
+            );
+          }
+        }),
+      ],
     );
   }
 }

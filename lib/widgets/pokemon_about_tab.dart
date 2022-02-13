@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pokedex_flutter/bloc/pokemon_type_bloc.dart';
+import 'package:get/get.dart';
+import 'package:pokedex_flutter/controllers/pokemon_type_coltroller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
 import 'package:pokedex_flutter/models/pokemon_type.dart';
@@ -22,6 +22,12 @@ class PokemonAboutTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final PokemonTypeColtorller _pokemonTypeColtorller = Get.put(
+      PokemonTypeColtorller(pokemon.id),
+    );
+
+    _pokemonTypeColtorller.fetchPokemonType(pokemon.id);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -33,22 +39,13 @@ class PokemonAboutTab extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        PokedexDataField(
+        pokedexDataField(
           "Species",
           '${pokemonSpecies.genera!.firstWhere((element) => element.language!.name == "en").genus}',
         ),
-        PokedexDataField(
-          "Height",
-          '${pokemon.height}',
-        ),
-        PokedexDataField(
-          "Weight",
-          '${pokemon.weight}',
-        ),
-        PokedexDataField(
-          "Capture Rate",
-          '${pokemonSpecies.captureRate}',
-        ),
+        pokedexDataField("Height", '${pokemon.height}'),
+        pokedexDataField("Weight", '${pokemon.weight}'),
+        pokedexDataField("Capture Rate", '${pokemonSpecies.captureRate}'),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,37 +56,36 @@ class PokemonAboutTab extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            BlocBuilder<PokemonTypeBloc, PokemonTypeState>(
-              bloc: PokemonTypeBloc()
-                ..add(PokemonTypeEvent.started('${pokemon.id}')),
-              builder: (context, state) {
-                if (state is PokemonTypeLoadedState) {
-                  PokemonType pokemonType = state.pokemonType;
-                  return Wrap(
-                    spacing: 4,
-                    children: pokemonType.damageRelations!.doubleDamageFrom!
-                        .map(
-                          (e) => Tooltip(
-                            message: e.name,
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              color: darken(const AppColors().get(e.name!)),
-                              child: SvgPicture.asset(
-                                'assets/poke-types/${e.name!.toLowerCase()}.svg',
-                                color: Colors.white,
-                                // color: darken(const AppColors().get(e.name!)),
-                                height: 20,
-                                width: 20,
-                              ),
+            Obx(() {
+              PokemonType? pokemonType =
+                  _pokemonTypeColtorller.pokemonType.value;
+
+              if (_pokemonTypeColtorller.isLoading.isTrue) {
+                return const SizedBox(height: 20);
+              } else {
+                return Wrap(
+                  spacing: 4,
+                  children: pokemonType!.damageRelations!.doubleDamageFrom!
+                      .map(
+                        (e) => Tooltip(
+                          message: e.name,
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            color: darken(const AppColors().get(e.name!)),
+                            child: SvgPicture.asset(
+                              'assets/poke-types/${e.name!.toLowerCase()}.svg',
+                              color: Colors.white,
+                              // color: darken(const AppColors().get(e.name!)),
+                              height: 20,
+                              width: 20,
                             ),
                           ),
-                        )
-                        .toList(),
-                  );
-                }
-                return const Text("");
-              },
-            )
+                        ),
+                      )
+                      .toList(),
+                );
+              }
+            }),
           ],
         ),
         Row(
@@ -104,11 +100,7 @@ class PokemonAboutTab extends StatelessWidget {
             ),
             Column(
               children: pokemon.abilities
-                  .map(
-                    (ability) => Text(
-                      '${ability.ability!.name}',
-                    ),
-                  )
+                  .map((ability) => Text(ability.ability!.name))
                   .toList(),
             ),
           ],
@@ -121,27 +113,15 @@ class PokemonAboutTab extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        PokedexDataField(
-          "Catch Rate",
-          '${pokemonSpecies.captureRate}',
-        ),
-        PokedexDataField(
-          "Base Happiness",
-          '${pokemonSpecies.baseHappiness}',
-        ),
-        PokedexDataField(
-          "Base Experience",
-          '${pokemon.baseExperience}',
-        ),
-        PokedexDataField(
-          "Growth Rate",
-          '${pokemonSpecies.growthRate!.name}',
-        ),
+        pokedexDataField("Catch Rate", '${pokemonSpecies.captureRate}'),
+        pokedexDataField("Base Happiness", '${pokemonSpecies.baseHappiness}'),
+        pokedexDataField("Base Experience", '${pokemon.baseExperience}'),
+        pokedexDataField("Growth Rate", '${pokemonSpecies.growthRate!.name}'),
       ],
     );
   }
 
-  Row PokedexDataField(String name, String value) {
+  Row pokedexDataField(String name, String value) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
