@@ -68,7 +68,7 @@ class _PokemonTabBarState extends State<PokemonTabBar>
             ),
           ),
           Container(
-            height: 800,
+            height: 400,
             padding: const EdgeInsets.only(top: 8.0),
             child: Obx(() {
               if (_pokemonSpeciesColtorller.isLoading.isTrue) {

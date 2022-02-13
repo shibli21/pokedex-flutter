@@ -37,6 +37,7 @@ class EvolutionPokemonCard extends StatelessWidget {
               ],
             ),
             height: 160,
+            width: 160,
             child: CachedNetworkImage(
               imageUrl:
                   "https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png",

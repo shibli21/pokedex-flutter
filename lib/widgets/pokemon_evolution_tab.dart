@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pokedex_flutter/controllers/pokemon_evolution_chain_controller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/models/pokemon_species.dart';
+import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/evolution_data_format.dart';
 import 'package:pokedex_flutter/widgets/evolution_pokemon_card.dart';
 
@@ -31,9 +32,12 @@ class PokemonEvolutionTab extends StatelessWidget {
               _pokemonEvoPokemonEvolutionChain.evolutionChainPokemonList;
 
           if (_pokemonEvoPokemonEvolutionChain.isLoading.isTrue) {
-            return const Padding(
-              padding: EdgeInsets.all(40.0),
-              child: Center(child: CircularProgressIndicator()),
+            return Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Center(
+                  child: CircularProgressIndicator(
+                color: const AppColors().get(pokemon.types[0].type!.name),
+              )),
             );
           } else {
             return SizedBox(

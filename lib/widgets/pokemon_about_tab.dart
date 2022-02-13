@@ -107,6 +107,7 @@ class PokemonAboutTab extends StatelessWidget {
               ),
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: pokemon.abilities
                   .map((ability) => Text(ability.ability!.name))
                   .toList(),

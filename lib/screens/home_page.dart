@@ -16,12 +16,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: IconButton(
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              padding: const EdgeInsets.only(right: 10),
               icon: Icon(
                 Icons.favorite,
                 color: darken(const AppColors().fighting),
@@ -33,51 +33,51 @@ class HomePage extends StatelessWidget {
                 );
               },
             ),
-          ),
-        ],
-        title: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 8,
-          children: [
-            Icon(
-              Icons.catching_pokemon_outlined,
-              color: darken(const AppColors().fighting),
-              size: 30,
-            ),
-            Text(
-              "Pokédex",
-              style: GoogleFonts.righteous(
-                textStyle: Theme.of(context).textTheme.headline5,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
           ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-        child: Obx(() {
-          if (_pokemonsColtorller.isLoading.isTrue) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            return LazyLoadScrollView(
-              onEndOfPage: () {
-                _pokemonsColtorller.fetchPokemons();
-              },
-              child: ListView.builder(
-                itemCount: _pokemonsColtorller.pokemonList.length,
-                itemBuilder: (context, index) {
-                  Pokemon pokemon = _pokemonsColtorller.pokemonList[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                    child: PokemonCard(pokemon),
-                  );
-                },
+          title: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 8,
+            children: [
+              Icon(
+                Icons.catching_pokemon_outlined,
+                color: darken(const AppColors().fighting),
+                size: 30,
               ),
-              isLoading: _pokemonsColtorller.isFetchingMore.isTrue,
-            );
-          }
-        }),
+              Text(
+                "Pokédex",
+                style: GoogleFonts.righteous(
+                  textStyle: Theme.of(context).textTheme.headline5,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+          child: Obx(() {
+            if (_pokemonsColtorller.isLoading.isTrue) {
+              return const Center(child: CircularProgressIndicator());
+            } else {
+              return LazyLoadScrollView(
+                onEndOfPage: () {
+                  _pokemonsColtorller.fetchPokemons();
+                },
+                child: ListView.builder(
+                  itemCount: _pokemonsColtorller.pokemonList.length,
+                  itemBuilder: (context, index) {
+                    Pokemon pokemon = _pokemonsColtorller.pokemonList[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                      child: PokemonCard(pokemon),
+                    );
+                  },
+                ),
+                isLoading: _pokemonsColtorller.isFetchingMore.isTrue,
+              );
+            }
+          }),
+        ),
       ),
     );
   }

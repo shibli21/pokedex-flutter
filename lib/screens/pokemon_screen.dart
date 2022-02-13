@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pokedex_flutter/controllers/favorite_pokemon_controller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
@@ -45,22 +46,20 @@ class _PokemonScreenState extends State<PokemonScreen> {
         ),
         actions: [
           Obx(() {
-            return Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: IconButton(
-                onPressed: () {
-                  _favPokemonsColtorller.toggleFav(pokemon);
-                },
-                icon: _favPokemonsColtorller.favPokemonList.contains(pokemon)
-                    ? Icon(
-                        Icons.favorite,
-                        color: darken(const AppColors().fighting),
-                      )
-                    : const Icon(
-                        Icons.favorite_border,
-                        color: Colors.white,
-                      ),
-              ),
+            return IconButton(
+              padding: const EdgeInsets.only(right: 10),
+              onPressed: () {
+                _favPokemonsColtorller.toggleFav(pokemon);
+              },
+              icon: _favPokemonsColtorller.favPokemonList.contains(pokemon)
+                  ? Icon(
+                      Icons.favorite,
+                      color: darken(const AppColors().fighting),
+                    )
+                  : const Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                    ),
             );
           })
         ],
@@ -69,17 +68,30 @@ class _PokemonScreenState extends State<PokemonScreen> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
               color: bg,
-              child: SizedBox(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    _buildHeader(),
-                  ],
-                ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    height: 230,
+                    left: 100,
+                    child: SvgPicture.asset(
+                      'assets/poke-types/${pokemon.types[0].type!.name.toLowerCase()}.svg',
+                      color: darken(
+                          const AppColors().get(pokemon.types[0].type!.name)),
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        _buildHeader(),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
             Column(
