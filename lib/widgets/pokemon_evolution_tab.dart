@@ -27,6 +27,7 @@ class PokemonEvolutionTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const SizedBox(height: 20),
         Obx(() {
           List<Pokemon> evolutionChainPokemons =
               _pokemonEvoPokemonEvolutionChain.evolutionChainPokemonList;

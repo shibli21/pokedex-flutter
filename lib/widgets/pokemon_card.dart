@@ -29,12 +29,19 @@ class PokemonCard extends StatelessWidget {
           routeName: "${pokemon.id}",
         );
       },
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+      child: Container(
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(
+          color: const AppColors().get(pokemon.types[0].type!.name),
+          borderRadius: BorderRadius.circular(5),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, 10),
+            ),
+          ],
         ),
-        color: const AppColors().get(pokemon.types[0].type!.name),
-        elevation: 0,
         child: Stack(
           children: [
             Positioned(

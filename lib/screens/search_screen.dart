@@ -45,24 +45,50 @@ class _SearchScreenState extends State<SearchScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            TextField(
-              onSubmitted: (String value) async {
-                setState(() {
-                  searchString = value;
-                });
-                _pokemonColtorller.fetchPokemon(value);
-              },
-              decoration: InputDecoration(
-                suffixIcon: Icon(
-                  Icons.search,
-                  color: darken(const AppColors().fighting),
-                ),
-                hintText: 'Id or name',
-                border: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    style: BorderStyle.solid,
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: TextField(
+                onSubmitted: (String value) async {
+                  setState(() {
+                    searchString = value;
+                  });
+                  _pokemonColtorller.fetchPokemon(value);
+                },
+                autofocus: true,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(0.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: darken(const AppColors().fighting),
+                      width: 1.0,
+                    ),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  prefixIconConstraints: const BoxConstraints(
+                    minWidth: 50,
+                    minHeight: 50,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    size: 25,
                     color: darken(const AppColors().fighting),
-                    width: 2,
+                  ),
+                  hintText: 'Id or name',
+                  isDense: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: darken(const AppColors().fighting),
+                      width: 1.0,
+                    ),
                   ),
                 ),
               ),
@@ -84,9 +110,12 @@ class _SearchScreenState extends State<SearchScreen> {
       return Obx(
         () {
           if (pokemonColtorller.isLoading.isTrue) {
-            return Center(
-              child: CircularProgressIndicator(
-                color: darken(const AppColors().fighting),
+            return Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: darken(const AppColors().fighting),
+                ),
               ),
             );
           } else {

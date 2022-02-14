@@ -28,11 +28,11 @@ class EvolutionPokemonCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(1000),
               color: const AppColors().get(pokemon.types[0].type!.name),
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
-                  color: Colors.black12,
-                  offset: Offset(0, 2),
-                  blurRadius: 6,
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 10,
+                  offset: const Offset(0, 10),
                 ),
               ],
             ),
