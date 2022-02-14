@@ -42,8 +42,9 @@ class PokemonAboutTab extends StatelessWidget {
           "Species",
           '${pokemonSpecies.genera!.firstWhere((element) => element.language!.name == "en").genus}',
         ),
-        pokedexDataField("Height", '${pokemon.height}'),
-        pokedexDataField("Weight", '${pokemon.weight}'),
+        pokedexDataField("Height", '${pokemon.height / 10} m'),
+        pokedexDataField(
+            "Weight", '${(pokemon.weight / 4.536).toPrecision(2)} lb'),
         pokedexDataField("Capture Rate", '${pokemonSpecies.captureRate}'),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
