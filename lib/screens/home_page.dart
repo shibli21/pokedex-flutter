@@ -5,6 +5,7 @@ import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:pokedex_flutter/controllers/pokemons_coltroller.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/screens/favorite_screen.dart';
+import 'package:pokedex_flutter/screens/search_screen.dart';
 import 'package:pokedex_flutter/theme/colors.dart';
 import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/widgets/pokemon_card.dart';
@@ -20,6 +21,18 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           actions: [
+            IconButton(
+              icon: Icon(
+                Icons.search,
+                color: darken(const AppColors().fighting),
+              ),
+              onPressed: () {
+                Get.to(
+                  () => const SearchScreen(),
+                  transition: Transition.fadeIn,
+                );
+              },
+            ),
             IconButton(
               padding: const EdgeInsets.only(right: 10),
               icon: Icon(

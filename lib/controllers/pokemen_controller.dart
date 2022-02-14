@@ -21,6 +21,7 @@ class PokemonColtorller extends GetxController {
 
   void fetchPokemon(String idOrName) async {
     try {
+      pokemon.value = null;
       isLoading(true);
       pokemon.value = await _client.getPokemonById(idOrName);
     } finally {
