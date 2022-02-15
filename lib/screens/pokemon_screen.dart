@@ -46,12 +46,13 @@ class _PokemonScreenState extends State<PokemonScreen> {
         ),
         actions: [
           Obx(() {
+            bool isFav = _favPokemonsColtorller.isFavorite(pokemon);
             return IconButton(
               padding: const EdgeInsets.only(right: 10),
               onPressed: () {
                 _favPokemonsColtorller.toggleFav(pokemon);
               },
-              icon: _favPokemonsColtorller.favPokemonList.contains(pokemon)
+              icon: isFav
                   ? Icon(
                       Icons.favorite,
                       color: darken(const AppColors().fighting),

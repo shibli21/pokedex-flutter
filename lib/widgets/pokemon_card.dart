@@ -103,6 +103,7 @@ class PokemonCard extends StatelessWidget {
               ],
             ),
             Obx(() {
+              bool isFav = _favPokemonsColtorller.isFavorite(pokemon);
               return Positioned(
                 top: 20,
                 right: 20,
@@ -110,7 +111,7 @@ class PokemonCard extends StatelessWidget {
                   onTap: () {
                     _favPokemonsColtorller.toggleFav(pokemon);
                   },
-                  child: _favPokemonsColtorller.favPokemonList.contains(pokemon)
+                  child: isFav
                       ? Icon(
                           Icons.favorite,
                           color: darken(const AppColors().fighting),
