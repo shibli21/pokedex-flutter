@@ -43,7 +43,7 @@ class PokemonsController extends GetxController {
             Pokemon poke =
                 await _client.getPokemonById(getIdFromUrl(pokemon.url));
             pokemonList.add(poke);
-            pokemonBox.put(poke.id.toString(), poke);
+            pokemonBox.put(poke.id, poke);
           }
         }
       } else {
@@ -53,7 +53,7 @@ class PokemonsController extends GetxController {
           Pokemon poke =
               await _client.getPokemonById(getIdFromUrl(pokemon.url));
           pokemonList.add(poke);
-          pokemonBox.put(poke.id.toString(), poke);
+          pokemonBox.put(poke.id, poke);
         }
       }
     } finally {

@@ -50,7 +50,7 @@ class PokemonEvolutionChainController extends GetxController {
         var evoList = getEvo(_pokemonEvolutionChain.value!);
 
         for (var element in evoList) {
-          Pokemon? pokeFromBox = pokemonBox.get(element['id'].toString());
+          Pokemon? pokeFromBox = pokemonBox.get(int.parse(element['id']));
 
           if (pokeFromBox != null) {
             evolutionChainPokemonList.add(pokeFromBox);

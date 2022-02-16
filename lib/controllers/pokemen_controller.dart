@@ -28,7 +28,9 @@ class PokemonController extends GetxController {
       pokemon.value = null;
       isLoading(true);
 
-      Pokemon? pokeFromBox = pokemonBox.get(idOrName);
+      Pokemon? pokeFromBox = int.tryParse(idOrName) == null
+          ? null
+          : pokemonBox.get(int.parse(idOrName));
 
       if (pokeFromBox != null) {
         pokemon.value = pokeFromBox;
