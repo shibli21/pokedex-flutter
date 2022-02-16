@@ -73,9 +73,8 @@ class HomePage extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             } else {
               return LazyLoadScrollView(
-                onEndOfPage: () {
-                  _pokemonsColtorller.fetchPokemons();
-                },
+                onEndOfPage: () => _pokemonsColtorller.fetchPokemons(),
+                scrollOffset: 100,
                 child: ListView.builder(
                   itemCount: _pokemonsColtorller.pokemonList.length,
                   itemBuilder: (context, index) {

@@ -26,9 +26,9 @@ class FavPokemonScreen extends StatelessWidget {
         ),
         titleSpacing: 0,
         title: Text(
-          'Favoritos',
+          'Favorite Pokémons',
           style: GoogleFonts.righteous(
-            textStyle: Theme.of(context).textTheme.headline5,
+            textStyle: Theme.of(context).textTheme.headline6,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -51,7 +51,7 @@ class FavPokemonScreen extends StatelessWidget {
           } else {
             return Center(
               child: Text(
-                "No favorite pokemon found",
+                "No favorite pokémon found",
                 style: GoogleFonts.righteous(
                   textStyle: Theme.of(context).textTheme.headline6,
                   fontWeight: FontWeight.bold,
