@@ -16,6 +16,8 @@ class PokemonEvolutionChainController extends GetxController {
   final evolutionChainPokemonList = RxList<Pokemon>([]);
 
   final pokemonBox = Hive.box<Pokemon>(POKEMON_BOX);
+  final pokemonEvolutionBox =
+      Hive.box<PokemonEvolutionChain>(POKEMON_EVOLUTION_BOX);
 
   RxBool isLoading = false.obs;
 
@@ -30,9 +32,19 @@ class PokemonEvolutionChainController extends GetxController {
   void fetchPokemonEvolutionChain(String id) async {
     try {
       evolutionChainPokemonList.clear();
-      isLoading(true);
-      _pokemonEvolutionChain.value =
-          await _client.getPokemonEvolutionChainById(id);
+
+      PokemonEvolutionChain? pokeEvoFromBox =
+          pokemonEvolutionBox.get(id.toString());
+
+      if (pokeEvoFromBox != null) {
+        _pokemonEvolutionChain.value = pokeEvoFromBox;
+      } else {
+        isLoading(true);
+        PokemonEvolutionChain? pokeEvo =
+            await _client.getPokemonEvolutionChainById(id);
+        _pokemonEvolutionChain.value = pokeEvo;
+        pokemonEvolutionBox.put(id.toString(), pokeEvo);
+      }
 
       if (_pokemonEvolutionChain.value != null) {
         var evoList = getEvo(_pokemonEvolutionChain.value!);

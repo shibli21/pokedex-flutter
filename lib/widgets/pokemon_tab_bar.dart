@@ -83,23 +83,35 @@ class _PokemonTabBarState extends State<PokemonTabBar>
                   ],
                 );
               } else {
-                PokemonSpecies pokemonSpecies =
-                    _pokemonSpeciesController.pokemonSpecies.value!;
-                return TabBarView(
-                  controller: _tabController,
-                  children: <Widget>[
-                    PokemonAboutTab(
-                      bg: widget.bg,
-                      pokemon: widget.pokemon,
-                      pokemonSpecies: pokemonSpecies,
+                PokemonSpecies? pokemonSpecies =
+                    _pokemonSpeciesController.pokemonSpecies.value;
+
+                if (pokemonSpecies != null) {
+                  return TabBarView(
+                    controller: _tabController,
+                    children: <Widget>[
+                      PokemonAboutTab(
+                        bg: widget.bg,
+                        pokemon: widget.pokemon,
+                        pokemonSpecies: pokemonSpecies,
+                      ),
+                      PokemonStatsTab(bg: widget.bg, pokemon: widget.pokemon),
+                      PokemonEvolutionTab(
+                        pokemon: widget.pokemon,
+                        pokemonSpecies: pokemonSpecies,
+                      )
+                    ],
+                  );
+                } else {
+                  return const Text(
+                    "No Internet Connection!",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
                     ),
-                    PokemonStatsTab(bg: widget.bg, pokemon: widget.pokemon),
-                    PokemonEvolutionTab(
-                      pokemon: widget.pokemon,
-                      pokemonSpecies: pokemonSpecies,
-                    )
-                  ],
-                );
+                  );
+                }
               }
             }),
           )

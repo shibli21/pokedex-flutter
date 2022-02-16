@@ -9,7 +9,7 @@ getIdFromUrl(String url) {
 
 List<dynamic> getEvo(PokemonEvolutionChain ev) {
   List<Chain> trackingApiData = [ev.chain!];
-  var evoId = getIdFromUrl(ev.chain!.species!.url!);
+  var evoId = getIdFromUrl(ev.chain!.species!.url);
   List<dynamic> evoChainFormattedData = [
     {
       "id": evoId,
@@ -25,7 +25,7 @@ List<dynamic> getEvo(PokemonEvolutionChain ev) {
       trackingApiData[i].evolvesTo!.forEach(
             (pokemon) => {
               trackingApiData.add(pokemon),
-              evoId = getIdFromUrl(pokemon.species!.url!),
+              evoId = getIdFromUrl(pokemon.species!.url),
               multiEvoPath.add(
                 {
                   "id": evoId,
@@ -40,7 +40,7 @@ List<dynamic> getEvo(PokemonEvolutionChain ev) {
         var nextEvoData = trackingApiData[i].evolvesTo![0];
         trackingApiData.add(nextEvoData);
 
-        evoId = getIdFromUrl(nextEvoData.species!.url!);
+        evoId = getIdFromUrl(nextEvoData.species!.url);
         evoChainFormattedData.add(
           {
             "id": evoId,

@@ -1,23 +1,28 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 
 part 'pokemon_species.freezed.dart';
 part 'pokemon_species.g.dart';
 
 @freezed
 abstract class PokemonSpecies with _$PokemonSpecies {
+  @HiveType(typeId: 6)
   const factory PokemonSpecies({
-    @JsonKey(name: 'base_happiness') required int baseHappiness,
-    @JsonKey(name: 'capture_rate') required int captureRate,
-    @JsonKey(name: 'evolution_chain') required EvolutionChain evolutionChain,
-    @JsonKey(name: 'evolves_from_species') dynamic evolvesFromSpecies,
-    @JsonKey(name: 'flavor_text_entry')
-        List<FlavorTextEntry>? flavorTextEntries,
-    List<Genus>? genera,
-    @JsonKey(name: 'growth_rate') Color? growthRate,
-    required int id,
-    @JsonKey(name: 'is_legendary') bool? isLegendary,
-    @JsonKey(name: 'is_mythical') bool? isMythical,
-    required String? name,
+    @HiveField(0) @JsonKey(name: 'base_happiness') required int baseHappiness,
+    @HiveField(1) @JsonKey(name: 'capture_rate') required int captureRate,
+    @HiveField(2)
+    @JsonKey(name: 'evolution_chain')
+        required EvolutionChain evolutionChain,
+    @HiveField(3)
+    @HiveField(4)
+    @JsonKey(name: 'evolves_from_species')
+        dynamic evolvesFromSpecies,
+    @HiveField(5) List<Genus>? genera,
+    @HiveField(6) @JsonKey(name: 'growth_rate') Color? growthRate,
+    @HiveField(7) required int id,
+    @HiveField(8) @JsonKey(name: 'is_legendary') bool? isLegendary,
+    @HiveField(9) @JsonKey(name: 'is_mythical') bool? isMythical,
+    @HiveField(10) required String? name,
   }) = _PokemonSpecies;
 
   factory PokemonSpecies.fromJson(Map<String, dynamic> json) =>
@@ -26,9 +31,10 @@ abstract class PokemonSpecies with _$PokemonSpecies {
 
 @freezed
 abstract class Color with _$Color {
+  @HiveType(typeId: 7)
   const factory Color({
-    String? name,
-    String? url,
+    @HiveField(0) String? name,
+    @HiveField(1) String? url,
   }) = _Color;
 
   factory Color.fromJson(Map<String, dynamic> json) => _$ColorFromJson(json);
@@ -36,8 +42,9 @@ abstract class Color with _$Color {
 
 @freezed
 abstract class EvolutionChain with _$EvolutionChain {
+  @HiveType(typeId: 8)
   const factory EvolutionChain({
-    String? url,
+    @HiveField(0) String? url,
   }) = _EvolutionChain;
 
   factory EvolutionChain.fromJson(Map<String, dynamic> json) =>
@@ -45,22 +52,11 @@ abstract class EvolutionChain with _$EvolutionChain {
 }
 
 @freezed
-abstract class FlavorTextEntry with _$FlavorTextEntry {
-  const factory FlavorTextEntry({
-    @JsonKey(name: "flavor_text") String? flavorText,
-    Color? language,
-    Color? version,
-  }) = _FlavorTextEntry;
-
-  factory FlavorTextEntry.fromJson(Map<String, dynamic> json) =>
-      _$FlavorTextEntryFromJson(json);
-}
-
-@freezed
 abstract class Genus with _$Genus {
+  @HiveType(typeId: 10)
   const factory Genus({
-    String? genus,
-    Color? language,
+    @HiveField(0) String? genus,
+    @HiveField(1) Color? language,
   }) = _Genus;
 
   factory Genus.fromJson(Map<String, dynamic> json) => _$GenusFromJson(json);
