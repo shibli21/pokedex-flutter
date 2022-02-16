@@ -5,8 +5,8 @@ import 'package:pokedex_flutter/models/pokemon_evolution_chain.dart';
 import 'package:pokedex_flutter/utils/evolution_data_format.dart';
 import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
-class PokemonEvolutionChainColtorller extends GetxController {
-  PokemonEvolutionChainColtorller(this.id);
+class PokemonEvolutionChainController extends GetxController {
+  PokemonEvolutionChainController(this.id);
 
   final String id;
 

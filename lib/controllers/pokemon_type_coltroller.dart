@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:pokedex_flutter/models/pokemon_type.dart';
 import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
-class PokemonTypeColtorller extends GetxController {
-  PokemonTypeColtorller(this.id);
+class PokemonTypeController extends GetxController {
+  PokemonTypeController(this.id);
 
   final String id;
 

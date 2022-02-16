@@ -10,8 +10,8 @@ import 'package:pokedex_flutter/widgets/pokemon_card.dart';
 class FavPokemonScreen extends StatelessWidget {
   FavPokemonScreen({Key? key}) : super(key: key);
 
-  final FavoritePokemonsColtorller _favPokemonsColtorller =
-      Get.put(FavoritePokemonsColtorller());
+  final FavoritePokemonsController _favPokemonsController =
+      Get.put(FavoritePokemonsController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +36,11 @@ class FavPokemonScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
         child: Obx(() {
-          if (_favPokemonsColtorller.favPokemonList.isNotEmpty) {
+          if (_favPokemonsController.favPokemonList.isNotEmpty) {
             return ListView.builder(
-              itemCount: _favPokemonsColtorller.favPokemonList.length,
+              itemCount: _favPokemonsController.favPokemonList.length,
               itemBuilder: (context, index) {
-                Pokemon pokemon = _favPokemonsColtorller.favPokemonList[index];
+                Pokemon pokemon = _favPokemonsController.favPokemonList[index];
 
                 return Padding(
                   padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),

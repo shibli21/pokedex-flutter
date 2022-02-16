@@ -27,8 +27,8 @@ class _PokemonTabBarState extends State<PokemonTabBar>
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
-    final PokemonSpeciesColtorller _pokemonSpeciesColtorller = Get.put(
-      PokemonSpeciesColtorller(widget.pokemon.id),
+    final PokemonSpeciesController _pokemonSpeciesController = Get.put(
+      PokemonSpeciesController(widget.pokemon.id),
     );
 
     return Padding(
@@ -71,7 +71,7 @@ class _PokemonTabBarState extends State<PokemonTabBar>
             height: 400,
             padding: const EdgeInsets.only(top: 8.0),
             child: Obx(() {
-              if (_pokemonSpeciesColtorller.isLoading.isTrue) {
+              if (_pokemonSpeciesController.isLoading.isTrue) {
                 return Column(
                   children: <Widget>[
                     Padding(
@@ -84,7 +84,7 @@ class _PokemonTabBarState extends State<PokemonTabBar>
                 );
               } else {
                 PokemonSpecies pokemonSpecies =
-                    _pokemonSpeciesColtorller.pokemonSpecies.value!;
+                    _pokemonSpeciesController.pokemonSpecies.value!;
                 return TabBarView(
                   controller: _tabController,
                   children: <Widget>[

@@ -13,7 +13,7 @@ import 'package:pokedex_flutter/widgets/pokemon_card.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  final PokemonsColtorller _pokemonsColtorller = Get.put(PokemonsColtorller());
+  final PokemonsController _pokemonsController = Get.put(PokemonsController());
 
   @override
   Widget build(BuildContext context) {
@@ -69,23 +69,23 @@ class HomePage extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
           child: Obx(() {
-            if (_pokemonsColtorller.isLoading.isTrue) {
+            if (_pokemonsController.isLoading.isTrue) {
               return const Center(child: CircularProgressIndicator());
             } else {
               return LazyLoadScrollView(
-                onEndOfPage: () => _pokemonsColtorller.fetchPokemons(),
+                onEndOfPage: () => _pokemonsController.fetchPokemons(),
                 scrollOffset: 100,
                 child: ListView.builder(
-                  itemCount: _pokemonsColtorller.pokemonList.length,
+                  itemCount: _pokemonsController.pokemonList.length,
                   itemBuilder: (context, index) {
-                    Pokemon pokemon = _pokemonsColtorller.pokemonList[index];
+                    Pokemon pokemon = _pokemonsController.pokemonList[index];
                     return Padding(
                       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                       child: PokemonCard(pokemon),
                     );
                   },
                 ),
-                isLoading: _pokemonsColtorller.isFetchingMore.isTrue,
+                isLoading: _pokemonsController.isFetchingMore.isTrue,
               );
             }
           }),

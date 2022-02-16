@@ -23,8 +23,8 @@ class PokemonAboutTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PokemonTypeColtorller _pokemonTypeColtorller = Get.put(
-      PokemonTypeColtorller(getIdFromUrl(pokemon.types[0].type!.url)),
+    final PokemonTypeController _pokemonTypeController = Get.put(
+      PokemonTypeController(getIdFromUrl(pokemon.types[0].type!.url)),
     );
 
     return Column(
@@ -57,11 +57,11 @@ class PokemonAboutTab extends StatelessWidget {
               ),
             ),
             Obx(() {
-              if (_pokemonTypeColtorller.isLoading.isTrue) {
+              if (_pokemonTypeController.isLoading.isTrue) {
                 return const SizedBox(height: 20);
               } else {
                 PokemonType? pokemonType =
-                    _pokemonTypeColtorller.pokemonType.value;
+                    _pokemonTypeController.pokemonType.value;
 
                 if (pokemonType != null) {
                   return Wrap(
@@ -116,7 +116,7 @@ class PokemonAboutTab extends StatelessWidget {
           ],
         ),
         Text(
-          "Trainning",
+          "Training",
           style: TextStyle(
             color: bg,
             fontSize: 20,

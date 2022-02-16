@@ -10,12 +10,12 @@ import 'package:pokedex_flutter/utils/color_darken.dart';
 import 'package:pokedex_flutter/widgets/pokemon_type_chips.dart';
 
 class PokemonCard extends StatelessWidget {
-  Pokemon pokemon;
+  final Pokemon pokemon;
 
   PokemonCard(this.pokemon, {Key? key}) : super(key: key);
 
-  final FavoritePokemonsColtorller _favPokemonsColtorller =
-      Get.put(FavoritePokemonsColtorller());
+  final FavoritePokemonsController _favPokemonsController =
+      Get.put(FavoritePokemonsController());
 
   @override
   Widget build(BuildContext context) {
@@ -103,13 +103,13 @@ class PokemonCard extends StatelessWidget {
               ],
             ),
             Obx(() {
-              bool isFav = _favPokemonsColtorller.isFavorite(pokemon);
+              bool isFav = _favPokemonsController.isFavorite(pokemon);
               return Positioned(
                 top: 20,
                 right: 20,
                 child: GestureDetector(
                   onTap: () {
-                    _favPokemonsColtorller.toggleFav(pokemon);
+                    _favPokemonsController.toggleFav(pokemon);
                   },
                   child: isFav
                       ? Icon(

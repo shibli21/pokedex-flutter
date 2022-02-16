@@ -19,8 +19,8 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    PokemonColtorller _pokemonColtorller = Get.put(
-      PokemonColtorller(searchString),
+    PokemonController _pokemonController = Get.put(
+      PokemonController(searchString),
     );
 
     return Scaffold(
@@ -60,7 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   setState(() {
                     searchString = value;
                   });
-                  _pokemonColtorller.fetchPokemon(value);
+                  _pokemonController.fetchPokemon(value);
                 },
                 autofocus: true,
                 decoration: InputDecoration(
@@ -95,7 +95,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
-              child: searchedPokemon(_pokemonColtorller),
+              child: searchedPokemon(_pokemonController),
             ),
           ],
         ),
@@ -103,13 +103,13 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget searchedPokemon(PokemonColtorller pokemonColtorller) {
+  Widget searchedPokemon(PokemonController pokemonController) {
     if (searchString.isEmpty) {
       return Container();
     } else {
       return Obx(
         () {
-          if (pokemonColtorller.isLoading.isTrue) {
+          if (pokemonController.isLoading.isTrue) {
             return Padding(
               padding: const EdgeInsets.all(40.0),
               child: Center(
@@ -119,7 +119,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             );
           } else {
-            Pokemon? pokemon = pokemonColtorller.pokemon.value;
+            Pokemon? pokemon = pokemonController.pokemon.value;
 
             if (pokemon != null) {
               return PokemonCard(

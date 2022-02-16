@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/utils/hive_config.dart';
 
-class FavoritePokemonsColtorller extends GetxController {
+class FavoritePokemonsController extends GetxController {
   List<Pokemon> favPokemonList = <Pokemon>[].obs;
   RxBool isLoading = false.obs;
 

@@ -21,8 +21,8 @@ class PokemonEvolutionTab extends StatelessWidget {
   Widget build(BuildContext context) {
     String evoId = getIdFromUrl(pokemonSpecies.evolutionChain.url!);
 
-    final PokemonEvolutionChainColtorller _pokemonEvoPokemonEvolutionChain =
-        Get.put(PokemonEvolutionChainColtorller(evoId));
+    final PokemonEvolutionChainController _pokemonEvoPokemonEvolutionChain =
+        Get.put(PokemonEvolutionChainController(evoId));
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,

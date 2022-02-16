@@ -10,17 +10,17 @@ import 'package:pokedex_flutter/widgets/pokemon_tab_bar.dart';
 import 'package:pokedex_flutter/widgets/pokemon_type_chips.dart';
 
 class PokemonScreen extends StatefulWidget {
-  Pokemon pokemon;
+  final Pokemon pokemon;
 
-  PokemonScreen(this.pokemon, {Key? key}) : super(key: key);
+  const PokemonScreen(this.pokemon, {Key? key}) : super(key: key);
 
   @override
   State<PokemonScreen> createState() => _PokemonScreenState();
 }
 
 class _PokemonScreenState extends State<PokemonScreen> {
-  final FavoritePokemonsColtorller _favPokemonsColtorller = Get.put(
-    FavoritePokemonsColtorller(),
+  final FavoritePokemonsController _favPokemonsController = Get.put(
+    FavoritePokemonsController(),
   );
 
   @override
@@ -46,11 +46,11 @@ class _PokemonScreenState extends State<PokemonScreen> {
         ),
         actions: [
           Obx(() {
-            bool isFav = _favPokemonsColtorller.isFavorite(pokemon);
+            bool isFav = _favPokemonsController.isFavorite(pokemon);
             return IconButton(
               padding: const EdgeInsets.only(right: 10),
               onPressed: () {
-                _favPokemonsColtorller.toggleFav(pokemon);
+                _favPokemonsController.toggleFav(pokemon);
               },
               icon: isFav
                   ? Icon(

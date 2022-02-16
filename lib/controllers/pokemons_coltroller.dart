@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
@@ -7,7 +5,7 @@ import 'package:pokedex_flutter/models/pokemons.dart';
 import 'package:pokedex_flutter/utils/evolution_data_format.dart';
 import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
-class PokemonsColtorller extends GetxController {
+class PokemonsController extends GetxController {
   List<Pokemon> pokemonList = <Pokemon>[].obs;
 
   RxBool isLoading = false.obs;
