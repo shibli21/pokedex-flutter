@@ -17,64 +17,68 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.search,
-                color: darken(const AppColors().fighting),
-              ),
-              onPressed: () {
-                Get.to(
-                  () => const SearchScreen(),
-                  transition: Transition.fadeIn,
-                );
-              },
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: darken(const AppColors().fighting),
             ),
-            IconButton(
-              padding: const EdgeInsets.only(right: 10),
-              icon: Icon(
-                Icons.favorite,
-                color: darken(const AppColors().fighting),
+            onPressed: () {
+              Get.to(
+                () => const SearchScreen(),
+                transition: Transition.fadeIn,
+              );
+            },
+          ),
+          IconButton(
+            padding: const EdgeInsets.only(right: 10),
+            icon: Icon(
+              Icons.favorite,
+              color: darken(const AppColors().fighting),
+            ),
+            onPressed: () {
+              Get.to(
+                () => FavPokemonScreen(),
+                transition: Transition.fadeIn,
+              );
+            },
+          ),
+        ],
+        title: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 8,
+          children: [
+            Icon(
+              Icons.catching_pokemon_outlined,
+              color: darken(const AppColors().fighting),
+              size: 30,
+            ),
+            Text(
+              "Pokédex",
+              style: GoogleFonts.righteous(
+                textStyle: Theme.of(context).textTheme.headline5,
+                fontWeight: FontWeight.bold,
               ),
-              onPressed: () {
-                Get.to(
-                  () => FavPokemonScreen(),
-                  transition: Transition.fadeIn,
-                );
-              },
             ),
           ],
-          title: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 8,
-            children: [
-              Icon(
-                Icons.catching_pokemon_outlined,
-                color: darken(const AppColors().fighting),
-                size: 30,
-              ),
-              Text(
-                "Pokédex",
-                style: GoogleFonts.righteous(
-                  textStyle: Theme.of(context).textTheme.headline5,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-          child: Obx(() {
-            if (_pokemonsController.isLoading.isTrue) {
-              return const Center(child: CircularProgressIndicator());
-            } else {
-              return LazyLoadScrollView(
-                onEndOfPage: () => _pokemonsController.fetchPokemons(),
-                scrollOffset: 100,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+        child: Obx(() {
+          if (_pokemonsController.isLoading.isTrue) {
+            return const Center(child: CircularProgressIndicator());
+          } else {
+            return LazyLoadScrollView(
+              onEndOfPage: () => _pokemonsController.fetchPokemons(),
+              scrollOffset: 100,
+              child: RefreshIndicator(
+                color: darken(const AppColors().fighting),
+                onRefresh: () async {
+                  return _pokemonsController.fetchPokemons();
+                },
                 child: ListView.builder(
                   itemCount: _pokemonsController.pokemonList.length,
                   itemBuilder: (context, index) {
@@ -85,11 +89,11 @@ class HomePage extends StatelessWidget {
                     );
                   },
                 ),
-                isLoading: _pokemonsController.isFetchingMore.isTrue,
-              );
-            }
-          }),
-        ),
+              ),
+              isLoading: _pokemonsController.isFetchingMore.isTrue,
+            );
+          }
+        }),
       ),
     );
   }
