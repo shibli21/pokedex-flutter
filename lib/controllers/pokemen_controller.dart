@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
+import 'package:pokedex_flutter/utils/hive_config.dart';
 import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
 class PokemonController extends GetxController {
@@ -10,6 +12,8 @@ class PokemonController extends GetxController {
 
   final pokemon = Rx<Pokemon?>(null);
   RxBool isLoading = false.obs;
+
+  final pokemonBox = Hive.box<Pokemon>(POKEMON_BOX);
 
   @override
   void onInit() {
@@ -23,7 +27,14 @@ class PokemonController extends GetxController {
     try {
       pokemon.value = null;
       isLoading(true);
-      pokemon.value = await _client.getPokemonById(idOrName);
+
+      Pokemon? pokeFromBox = pokemonBox.get(idOrName);
+
+      if (pokeFromBox != null) {
+        pokemon.value = pokeFromBox;
+      } else {
+        pokemon.value = await _client.getPokemonById(idOrName);
+      }
     } finally {
       isLoading(false);
     }

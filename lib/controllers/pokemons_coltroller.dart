@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:pokedex_flutter/models/pokemon.dart';
 import 'package:pokedex_flutter/models/pokemons.dart';
 import 'package:pokedex_flutter/utils/evolution_data_format.dart';
+import 'package:pokedex_flutter/utils/hive_config.dart';
 import 'package:pokedex_flutter/utils/pokemon_client.dart';
 
 class PokemonsController extends GetxController {
@@ -10,6 +12,8 @@ class PokemonsController extends GetxController {
 
   RxBool isLoading = false.obs;
   RxBool isFetchingMore = false.obs;
+
+  final pokemonBox = Hive.box<Pokemon>(POKEMON_BOX);
 
   @override
   void onInit() {
@@ -21,27 +25,35 @@ class PokemonsController extends GetxController {
 
   void fetchPokemons() async {
     try {
-      if (pokemonList.isNotEmpty) {
-        isFetchingMore(true);
-        Pokemons pokemons = await _client.getPokemons(
-          offset: pokemonList.length,
-          limit: 5,
-        );
-
-        for (var pokemon in pokemons.results) {
-          pokemonList.add(
-            await _client.getPokemonById(getIdFromUrl(pokemon.url)),
+      if (pokemonBox.isNotEmpty) {
+        if (pokemonList.isEmpty) {
+          pokemonBox.toMap().forEach(
+            (key, value) async {
+              pokemonList.add(value);
+            },
           );
+        } else {
+          isFetchingMore(true);
+          Pokemons pokemons = await _client.getPokemons(
+            offset: pokemonList.length,
+            limit: 5,
+          );
+
+          for (var pokemon in pokemons.results) {
+            Pokemon poke =
+                await _client.getPokemonById(getIdFromUrl(pokemon.url));
+            pokemonList.add(poke);
+            pokemonBox.put(poke.id.toString(), poke);
+          }
         }
       } else {
         isLoading(true);
         Pokemons pokemons = await _client.getPokemons(limit: 5);
         for (var pokemon in pokemons.results) {
-          pokemonList.add(
-            await _client.getPokemonById(
-              getIdFromUrl(pokemon.url),
-            ),
-          );
+          Pokemon poke =
+              await _client.getPokemonById(getIdFromUrl(pokemon.url));
+          pokemonList.add(poke);
+          pokemonBox.put(poke.id.toString(), poke);
         }
       }
     } finally {

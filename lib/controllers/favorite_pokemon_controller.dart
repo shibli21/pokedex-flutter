@@ -7,7 +7,7 @@ class FavoritePokemonsController extends GetxController {
   List<Pokemon> favPokemonList = <Pokemon>[].obs;
   RxBool isLoading = false.obs;
 
-  final box = Hive.box<Pokemon>(POKEMON_BOX);
+  final box = Hive.box<Pokemon>(FAV_POKEMON_BOX);
 
   bool isFavorite(Pokemon pokemon) {
     return favPokemonList.firstWhereOrNull((p) => p.id == pokemon.id) != null;
