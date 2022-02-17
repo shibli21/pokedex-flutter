@@ -62,6 +62,7 @@ dev_dependencies:
   freezed: ^1.1.1
   retrofit_generator: ^4.0.1
   hive_generator: ^1.1.2
+  flutter_launcher_icons: ^0.9.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -76,6 +77,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/pokemon-png.png
+    - assets/pokeball.png
     - assets/poke-types/fire.svg
     - assets/poke-types/bug.svg
     - assets/poke-types/dark.svg
@@ -95,6 +97,10 @@ flutter:
     - assets/poke-types/steel.svg
     - assets/poke-types/water.svg
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/pokeball.png"
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
