@@ -26,7 +26,7 @@ abstract class Chain with _$Chain {
         List<EvolutionDetail>? evolutionDetails,
     @HiveField(1) @JsonKey(name: "evolves_to") List<Chain>? evolvesTo,
     @HiveField(2) @JsonKey(name: "is_baby") bool? isBaby,
-    Species? species,
+    @HiveField(3) Species? species,
   }) = _Chain;
 
   factory Chain.fromJson(Map<String, dynamic> json) => _$ChainFromJson(json);
