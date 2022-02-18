@@ -21,6 +21,32 @@ class PokemonAboutTab extends StatelessWidget {
   final Pokemon pokemon;
   final PokemonSpecies pokemonSpecies;
 
+  Row pokedexDataField(String name, String value) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          name,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(value),
+      ],
+    );
+  }
+
+  _buildTitle(String title) {
+    return Text(
+      title,
+      style: TextStyle(
+        color: bg,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final PokemonTypeController _pokemonTypeController = Get.put(
@@ -30,21 +56,19 @@ class PokemonAboutTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 4),
         Text(
-          "Pokédex Data",
-          style: TextStyle(
-            color: bg,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          '${pokemonSpecies.flavorTextEntries?.where((e) => e.language.name == 'en').toList().sublist(0, 1).map((e) => e.flavorText).join(' ').replaceAll("\n", ' ')}',
+          textAlign: TextAlign.justify,
         ),
+        _buildTitle("Pokédex Data"),
         pokedexDataField(
-          "Species",
+          "Category",
           '${pokemonSpecies.genera!.firstWhere((element) => element.language!.name == "en").genus}',
         ),
         pokedexDataField("Height", '${pokemon.height / 10} m'),
         pokedexDataField(
-            "Weight", '${(pokemon.weight / 4.536).toPrecision(2)} lb'),
+            "Weight", '${(pokemon.weight / 10).toPrecision(2)} kg'),
         pokedexDataField("Capture Rate", '${pokemonSpecies.captureRate}'),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,33 +139,11 @@ class PokemonAboutTab extends StatelessWidget {
             ),
           ],
         ),
-        Text(
-          "Training",
-          style: TextStyle(
-            color: bg,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        _buildTitle("Training"),
         pokedexDataField("Catch Rate", '${pokemonSpecies.captureRate}'),
         pokedexDataField("Base Happiness", '${pokemonSpecies.baseHappiness}'),
         pokedexDataField("Base Experience", '${pokemon.baseExperience}'),
         pokedexDataField("Growth Rate", '${pokemonSpecies.growthRate!.name}'),
-      ],
-    );
-  }
-
-  Row pokedexDataField(String name, String value) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          name,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(value),
       ],
     );
   }

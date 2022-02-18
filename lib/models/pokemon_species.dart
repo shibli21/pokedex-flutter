@@ -14,6 +14,8 @@ abstract class PokemonSpecies with _$PokemonSpecies {
     @JsonKey(name: 'evolution_chain')
         required EvolutionChain evolutionChain,
     @HiveField(3)
+    @JsonKey(name: 'flavor_text_entries')
+        List<FlavorTextEntry>? flavorTextEntries,
     @HiveField(4)
     @JsonKey(name: 'evolves_from_species')
         dynamic evolvesFromSpecies,
@@ -60,4 +62,16 @@ abstract class Genus with _$Genus {
   }) = _Genus;
 
   factory Genus.fromJson(Map<String, dynamic> json) => _$GenusFromJson(json);
+}
+
+@freezed
+abstract class FlavorTextEntry with _$FlavorTextEntry {
+  @HiveType(typeId: 17)
+  const factory FlavorTextEntry({
+    @HiveField(0) @JsonKey(name: "flavor_text") required String flavorText,
+    @HiveField(1) required Color language,
+  }) = _FlavorTextEntry;
+
+  factory FlavorTextEntry.fromJson(Map<String, dynamic> json) =>
+      _$FlavorTextEntryFromJson(json);
 }

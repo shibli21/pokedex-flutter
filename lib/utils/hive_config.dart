@@ -43,5 +43,6 @@ class HiveConfig {
     Hive.registerAdapter<PokemonEvolutionChain>(PokemonEvolutionChainAdapter());
     Hive.registerAdapter<Chain>(ChainAdapter());
     Hive.registerAdapter<EvolutionDetail>(EvolutionDetailAdapter());
+    Hive.registerAdapter<FlavorTextEntry>(FlavorTextEntryAdapter());
   }
 }
