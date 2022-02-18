@@ -41,15 +41,46 @@ class PokemonEvolutionTab extends StatelessWidget {
               )),
             );
           } else {
-            return SizedBox(
-              height: 180,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: evolutionChainPokemons
-                    .map((e) => EvolutionPokemonCard(e))
-                    .toList(),
-              ),
-            );
+            if (_pokemonEvoPokemonEvolutionChain
+                .evolutionChainPokemonList.isNotEmpty) {
+              return SizedBox(
+                height: 180,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: evolutionChainPokemons
+                      .map((e) => EvolutionPokemonCard(e))
+                      .toList(),
+                ),
+              );
+            } else {
+              return Column(
+                children: <Widget>[
+                  const SizedBox(height: 40),
+                  const Text(
+                    "No Internet Connection!",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
+                  ),
+                  TextButton.icon(
+                    onPressed: () {
+                      _pokemonEvoPokemonEvolutionChain
+                          .fetchPokemonEvolutionChain(evoId);
+                    },
+                    icon: const Icon(
+                      Icons.refresh,
+                      color: Colors.redAccent,
+                    ),
+                    label: const Text(
+                      "Retry",
+                      style: TextStyle(color: Colors.redAccent),
+                    ),
+                  ),
+                ],
+              );
+            }
           }
         }),
       ],

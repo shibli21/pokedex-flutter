@@ -103,13 +103,32 @@ class _PokemonTabBarState extends State<PokemonTabBar>
                     ],
                   );
                 } else {
-                  return const Text(
-                    "No Internet Connection!",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red,
-                    ),
+                  return Column(
+                    children: <Widget>[
+                      const SizedBox(height: 40),
+                      const Text(
+                        "No Internet Connection!",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
+                      ),
+                      TextButton.icon(
+                        onPressed: () {
+                          _pokemonSpeciesController
+                              .fetchPokemonSpecies(widget.pokemon.id);
+                        },
+                        icon: const Icon(
+                          Icons.refresh,
+                          color: Colors.redAccent,
+                        ),
+                        label: const Text(
+                          "Retry",
+                          style: TextStyle(color: Colors.redAccent),
+                        ),
+                      ),
+                    ],
                   );
                 }
               }
