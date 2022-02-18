@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pokedex_flutter/screens/home_page.dart';
 import 'package:pokedex_flutter/theme/app_theme.dart';
 import 'package:pokedex_flutter/utils/hive_config.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() async {
   await HiveConfig.init();
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         splash: 'assets/pokemon-png.png',
         nextScreen: HomePage(),
         splashTransition: SplashTransition.scaleTransition,
+        pageTransitionType: PageTransitionType.fade,
       ),
       initialRoute: '/',
     );
