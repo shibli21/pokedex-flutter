@@ -50,11 +50,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           spacing: 8,
           children: [
-            Icon(
-              Icons.catching_pokemon_outlined,
-              color: darken(const AppColors().fighting),
-              size: 30,
-            ),
+            Image.asset('assets/pokeball.png', width: 30, height: 30),
             Text(
               "Pokédex",
               style: GoogleFonts.righteous(
