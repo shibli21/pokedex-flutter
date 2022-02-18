@@ -27,37 +27,41 @@ class PokemonStatsTab extends StatelessWidget {
         ),
         Column(
           children: pokemon.stats.map((e) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
+            return Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Text(
                       e.stat!.name.toUpperCase(),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Text(
                       "${e.baseStat!}",
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                LinearPercentIndicator(
-                  padding: const EdgeInsets.all(0),
-                  animation: true,
-                  lineHeight: 10.0,
-                  animationDuration: 2500,
-                  percent: e.baseStat!.toDouble() / 255,
-                  progressColor: bg,
-                ),
-                const SizedBox(height: 10),
-              ],
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: LinearPercentIndicator(
+                      padding: const EdgeInsets.all(0),
+                      animation: true,
+                      lineHeight: 10.0,
+                      animationDuration: 2500,
+                      percent: e.baseStat!.toDouble() / 255,
+                      progressColor: bg,
+                    ),
+                  ),
+                ],
+              ),
             );
           }).toList(),
         ),

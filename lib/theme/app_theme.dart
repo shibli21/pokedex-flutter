@@ -8,12 +8,6 @@ class AppTheme {
   static ThemeData get basic => ThemeData(
         fontFamily: GoogleFonts.poppins().fontFamily,
         appBarTheme: const AppBarTheme(
-          // shape: Border(
-          //   bottom: BorderSide(
-          //     color: darken(const AppColors().fighting),
-          //     width: 2,
-          //   ),
-          // ),
           elevation: 0,
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(

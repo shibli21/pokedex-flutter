@@ -29,7 +29,7 @@ class FavPokemonScreen extends StatelessWidget {
           'Favorite Pokémons',
           style: GoogleFonts.righteous(
             textStyle: Theme.of(context).textTheme.headline6,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
           ),
         ),
       ),
@@ -54,7 +54,7 @@ class FavPokemonScreen extends StatelessWidget {
                 "No favorite pokémon found",
                 style: GoogleFonts.righteous(
                   textStyle: Theme.of(context).textTheme.headline6,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w300,
                   color: darken(const AppColors().fighting),
                 ),
               ),

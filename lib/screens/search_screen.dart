@@ -37,7 +37,7 @@ class _SearchScreenState extends State<SearchScreen> {
           'Search Pokémon',
           style: GoogleFonts.righteous(
             textStyle: Theme.of(context).textTheme.headline6,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
           ),
         ),
       ),
@@ -49,9 +49,9 @@ class _SearchScreenState extends State<SearchScreen> {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withOpacity(0.08),
                     blurRadius: 10,
-                    offset: const Offset(0, 1),
+                    offset: const Offset(1, 1),
                   ),
                 ],
               ),
@@ -60,7 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   setState(() {
                     searchString = value;
                   });
-                  _pokemonController.fetchPokemon(value);
+                  _pokemonController.fetchPokemon(value.toLowerCase());
                 },
                 autofocus: true,
                 decoration: InputDecoration(
@@ -73,16 +73,12 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   filled: true,
                   fillColor: Colors.white,
-                  prefixIconConstraints: const BoxConstraints(
-                    minWidth: 50,
-                    minHeight: 50,
-                  ),
                   prefixIcon: Icon(
                     Icons.search,
                     size: 25,
                     color: darken(const AppColors().fighting),
                   ),
-                  hintText: 'Id or name',
+                  hintText: 'Name / ID',
                   isDense: true,
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -132,7 +128,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   "No Pokémon Found",
                   style: GoogleFonts.righteous(
                     textStyle: Theme.of(context).textTheme.headline6,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w300,
                     color: darken(const AppColors().fighting),
                   ),
                 ),

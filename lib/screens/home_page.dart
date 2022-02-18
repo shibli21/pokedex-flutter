@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
               "Pokédex",
               style: GoogleFonts.righteous(
                 textStyle: Theme.of(context).textTheme.headline5,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w300,
               ),
             ),
           ],

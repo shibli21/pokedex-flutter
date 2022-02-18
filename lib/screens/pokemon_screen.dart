@@ -95,34 +95,27 @@ class _PokemonScreenState extends State<PokemonScreen> {
                 ],
               ),
             ),
-            Column(
-              children: [
-                Container(
-                  color: bg,
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      SizedBox(
-                        // width: double.infinity,
-                        child: ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          child: Container(
-                            color: Colors.white,
-                            child: PokemonTabBar(
-                              bg: bg,
-                              pokemon: pokemon,
-                            ),
-                          ),
-                        ),
+            Container(
+              color: bg,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                    child: Container(
+                      color: Colors.white,
+                      child: PokemonTabBar(
+                        bg: bg,
+                        pokemon: pokemon,
                       ),
-                      pokeImage(size),
-                    ],
+                    ),
                   ),
-                ),
-              ],
+                  pokeImage(size),
+                ],
+              ),
             )
           ],
         ),
