@@ -5,8 +5,6 @@
     Pokedex flutter
 </h1>
 
-<br />
-
 # App Preview
 
 <table>
@@ -34,7 +32,6 @@
 </table>
 
 <br>
-<br>
 
 # Features
 
@@ -46,17 +43,11 @@
 - Dio for api calls
 - Frezzed for code generation
 
-<br />
-
 # Contributing
 
-```
 As a learning process for Flutter, I built this project. I hope you can help me improve it.
 
 I'm always welcome to any contribution! Feel free to report Issue or send Pull Requests!
-```
-
-<br />
 
 # About me
 
