@@ -7,11 +7,11 @@
 
 # App Preview
 
-<table>
+<!-- <table>
   <tr>
-    <td><img src='screenshots/app_preview.gif' width="400"/><td>
+    <td><img src='screenshots/app_preview.gif' width="200"/><td>
   </tr>
-</table>
+</table> -->
 <table>
   <tr>
     <th>Home Screen</th>
