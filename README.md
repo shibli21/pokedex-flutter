@@ -9,24 +9,29 @@
 
 <table>
   <tr>
+    <td><img src='screenshots/app_preview.gif' width="400"/><td>
+  </tr>
+</table>
+<table>
+  <tr>
     <th>Home Screen</th>
     <th>Detail Screen</th>
     <th>Detail Screen</th>
   </tr>
   <tr>
-    <td><img src='screenshots/home.jpg'/></td>
+    <td><img src='screenshots/home_2.jpg'/></td>
     <td><img src='screenshots/details_about.jpg'/></td>
     <td><img src='screenshots/details_evo.jpg'/></td>
   </tr>
   <tr>
     <th>Favorite Screen</th>
     <th>Search Screen</th>
-    <th>Screen Search</th>
+    <th>Search Screen</th>
   </tr>
   <tr>
     <td><img src='screenshots/fav.jpg'/></td>
     <td><img src='screenshots/search_result.jpg'/></td>
-    <td><img src='screenshots/search.jpg'/></td>
+    <td><img src='screenshots/search_no_poke.jpg'/></td>
   </tr>
   
 </table>
@@ -45,7 +50,7 @@
 
 # Contributing
 
-As a learning process for Flutter, I built this project. I hope you can help me improve it.
+The purpose of this project was to learn flutter. I hope you can help me improve it.
 
 I'm always welcome to any contribution! Feel free to report Issue or send Pull Requests!
 
